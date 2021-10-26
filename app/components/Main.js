@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   container: {
   flex: 1,
 	marginTop: 40,
-  backgroundColor: 'black',
+  backgroundColor: 'white',
 	borderColor: "green",
 	borderTopLeftRadius: 20,
 	borderTopRightRadius: 20,
@@ -39,6 +39,8 @@ const styles = StyleSheet.create({
     height: "100%",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    borderBottomLeftRadius:20,
+    borderBottomRightRadius:20,
   }
 
 });

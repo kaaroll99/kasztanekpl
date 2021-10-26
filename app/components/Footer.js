@@ -4,8 +4,8 @@ import { StatusBar } from 'expo-status-bar';
 import {FontAwesome} from '@expo/vector-icons';
 import {SCREEN_NAME} from '../App'
 
-const currentColor = 'green'
-const nonColor = 'white'
+const currentColor = '#3040B3'
+const nonColor = 'black'
 export default function  Footer({selectScreen, currentScreen}){
     return (
     <View style={styles.container}>
@@ -15,8 +15,8 @@ export default function  Footer({selectScreen, currentScreen}){
 				}
 			}>
 		<Image 
+			source={require('../assets/logo-bw.png')}
 			style={styles.kasztanek}
-			source={require('../assets/logo-transparent.png')}
 			size={27}
 			color={
 				currentScreen === SCREEN_NAME.PEOPLE ? currentColor : nonColor
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 	zIndex:2,
 	width: "100%",
 	flexDirection: "row",
-	backgroundColor:"gray",
+	backgroundColor: 'white',
 	justifyContent: "space-around",
 	paddingTop: 20,
   },
