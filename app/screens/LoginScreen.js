@@ -7,7 +7,7 @@ export default function LoginScreen() {
     return (
     <View style={styles.container}>
 		<Image
-			source={require('../assets/logo.png')}
+			source={require('../assets/logo-transparent.png')}
 			style={styles.logo}
 		/>
 			<BAR/>
@@ -20,12 +20,13 @@ const styles = StyleSheet.create({
     flex: 1,
 	width: "100%",
 	alignItems: 'center',
-    justifyContent: 'center',
-	backgroundColor: 'rgb(216,151,145)'
+    justifyContent: 'flex-end',
+	backgroundColor: 'rgb(255,255,255)'
   },
   
   logo:{
-		height:100,
-		width:100,
+	marginBottom:300,
+	height:250,
+	width:250,
 	},
 });

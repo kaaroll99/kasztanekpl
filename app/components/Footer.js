@@ -15,7 +15,7 @@ export default function  Footer({selectScreen, currentScreen}){
 		}>
       <Image 
 		style={styles.kasztanek}
-		source={require('../assets/kasztan.png')}
+		source={require('../assets/logo-transparent.png')}
 		size={27}
 		color={
 			currentScreen === SCREEN_NAME.PEOPLE ? currentColor : nonColor
@@ -43,19 +43,23 @@ export default function  Footer({selectScreen, currentScreen}){
 const styles = StyleSheet.create({
   container: {
     height: 80,
+	zIndex:2,
 	width: "100%",
 	flexDirection: "row",
 	backgroundColor:"gray",
-	borderWidth: 5,
-	borderColor: "blue",
+	borderWidth:3,
 	justifyContent: "space-around",
-	padding: 15,
-	
+	paddingTop: 20,
+	shadowOpacity: 0.75,
+        shadowRadius: 5,
+        shadowColor: 'red',
+        shadowOffset: { height: 0, width: 0 },
+		elevation:9,
   },
   
   kasztanek:{
-	width: 50,
-    height: 50,
+	width: 40,
+    height: 40,
     resizeMode: 'stretch',  
   },
 });

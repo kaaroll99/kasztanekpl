@@ -5,11 +5,11 @@ import { StatusBar } from 'expo-status-bar';
 export default function  Bar({selectScreen, currentScreen}){
     return (
     <View style={styles.container}>
-			<View style={styles.logowanie}>
-				<Text>LOG IN</Text>
+			<View style={styles.button_login}>
+				<Text style={styles.text_login}>LOG IN</Text>
 			</View>	
-			<View style={styles.rejestracja}>
-				<Text>REGISTER</Text>
+			<View style={styles.button_register}>
+				<Text style={styles.text_login}>REGISTER</Text>
 	
 			</View>	
     </View>
@@ -24,21 +24,31 @@ const styles = StyleSheet.create({
 	justifyContent: "space-around",
   },
   
-  logowanie:{
+  button_login:{
 	height: "100%",
-	width: "50%",
-	borderWidth:2,
-	borderColor: "blue",
+	width: "49%",
+	backgroundColor: "#3040B3",
+	color: 'white',
 	alignItems: 'center',
     justifyContent: 'center',
+	borderTopLeftRadius: 20,
+	borderTopRightRadius:20,
   },
-  
-  rejestracja:{
+
+  button_register:{
 	height: "100%",
-	width: "50%",
-	borderWidth:2,
-	borderColor: "red",
+	width: "49%",
+	backgroundColor: "#945522",
+	color: 'white',
 	alignItems: 'center',
     justifyContent: 'center',
+	borderTopLeftRadius: 20,
+	borderTopRightRadius:20,
   },
+
+  text_login:{
+	  color: 'white',
+	  fontSize: 25,
+	  fontWeight: 'bold',
+  }
 });
