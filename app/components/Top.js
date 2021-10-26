@@ -8,12 +8,12 @@ export default function  Top(){
     return (
     <View style={styles.container}>
 		<Text style={styles.text_name}>
-			Daniel, 21
+			Kura, 21
 		</Text>
 		
 		<Text style={styles.text_loc}>
 		<EvilIcons name="location" size={24} color="white" />
-			Górno
+			Kielce
 		</Text>
     </View>
   );

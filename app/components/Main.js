@@ -9,7 +9,7 @@ export default function Main() {
     return (
     <View style={styles.container}>
       <Image
-			source={require('../assets/4.jpg')}
+			source={require('../assets/5.jpg')}
 			style={styles.image}
 		/>
       <View style={styles.topka}>
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   container: {
   flex: 1,
 	marginTop: 40,
-  backgroundColor: 'red',
+  backgroundColor: 'black',
 	borderColor: "green",
 	borderTopLeftRadius: 20,
 	borderTopRightRadius: 20,
