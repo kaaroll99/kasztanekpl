@@ -16,18 +16,15 @@ export const SCREEN_NAME = {
 	LOGIN: 'LoginScreen',
 }
 export default function App() {
-	const [currentScreen, setCurrnetScreen] = useState(SCREEN_NAME.PEOPLE)
+	const [currentScreen, setCurrnetScreen] = useState(SCREEN_NAME.LOGIN)
     return (
     <View style={styles.container}>
 		{currentScreen === SCREEN_NAME.LOGIN && <LoginScreen />}
 		{currentScreen === SCREEN_NAME.PEOPLE && <Main />}
 		{currentScreen === SCREEN_NAME.PROFILE && <ProfileScreen />}
 		{currentScreen === SCREEN_NAME.CHAT && <ChatScreen />}
-<<<<<<< Updated upstream
-		<Footer selectScreen={setCurrnetScreen} currentScreen={currentScreen}/>
-=======
 		{/*<Footer selectScreen={setCurrnetScreen} currentScreen={currentScreen}/>*/}
->>>>>>> Stashed changes
+
     </View>
   );
 }

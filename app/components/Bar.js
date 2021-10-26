@@ -21,8 +21,6 @@ const styles = StyleSheet.create({
     height: 80,
 	width: "100%",
 	flexDirection: "row",
-	borderWidth: 5,
-	borderColor: "none",
 	justifyContent: "space-around",
   },
   

@@ -20,8 +20,6 @@ const styles = StyleSheet.create({
   container: {
     height: 80,
 	width: "100%",
-	borderWidth: 5,
-	borderColor: "none",
 	justifyContent: "space-around",
 	padding: 15,
 	borderTopLeftRadius: 20,
