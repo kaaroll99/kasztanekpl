@@ -23,7 +23,11 @@ export default function App() {
 		{currentScreen === SCREEN_NAME.PEOPLE && <Main />}
 		{currentScreen === SCREEN_NAME.PROFILE && <ProfileScreen />}
 		{currentScreen === SCREEN_NAME.CHAT && <ChatScreen />}
+<<<<<<< Updated upstream
 		<Footer selectScreen={setCurrnetScreen} currentScreen={currentScreen}/>
+=======
+		{/*<Footer selectScreen={setCurrnetScreen} currentScreen={currentScreen}/>*/}
+>>>>>>> Stashed changes
     </View>
   );
 }
