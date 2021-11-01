@@ -1,31 +1,51 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import Footer from './components/Footer.js';
-import Main from './components/Main.js';
-import BAR from './components/Bar.js';
-import kasztanki from './screens/kasztanki.js';
-import ChatScreen from './screens/ChatScreen.js';
-import ProfileScreen from './screens/ProfileScreen.js';
-import LoginScreen from './screens/LoginScreen.js';
+import * as React from 'react';
+import { StyleSheet, Button, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import FirstScreen from './screens/FirstScreen';
+import LoginScreen from './screens/LoginScreen';
+import HomeScreen from './screens/HomeScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import ChatScreen from './screens/ChatScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import Footer from './components/Footer';
 
-export const SCREEN_NAME = {
-	PEOPLE: 'Main',
-	PROFILE: 'ProfileScreen',
-	CHAT: 'ChatScreen',
-	LOGIN: 'LoginScreen',
-}
+const Stack = createStackNavigator();
+
 export default function App() {
-	const [currentScreen, setCurrnetScreen] = useState(SCREEN_NAME.PEOPLE)
-    return (
-    <View style={styles.container}>
-		{currentScreen === SCREEN_NAME.LOGIN && <LoginScreen />}
-		{currentScreen === SCREEN_NAME.PEOPLE && <Main />}
-		{currentScreen === SCREEN_NAME.PROFILE && <ProfileScreen />}
-		{currentScreen === SCREEN_NAME.CHAT && <ChatScreen />}
-		<Footer selectScreen={setCurrnetScreen} currentScreen={currentScreen}/>
-
-    </View>
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="FirstScreen">
+        <Stack.Screen
+          name="FirstScreen"
+          component={FirstScreen}
+        />
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+        />
+		
+		<Stack.Screen
+          name="RegisterScreen"
+          component={RegisterScreen}
+        />
+		
+		<Stack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+        />
+		
+		<Stack.Screen
+          name="ProfileScreen"
+          component={ProfileScreen}
+        />
+		
+		<Stack.Screen
+          name="ChatScreen"
+          component={ChatScreen}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

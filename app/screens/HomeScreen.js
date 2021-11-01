@@ -1,13 +1,31 @@
 import * as React from 'react';
 import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import {FontAwesome} from '@expo/vector-icons';
+import Top from '../components/Top.js';
+import Footer from '../components/Footer.js';
 
-const currentColor = 'green'
-const nonColor = 'white'
+const user = [
+  { id: "1", uri: require('../assets/1.jpeg') },
+  { id: "2", uri: require('../assets/2.jpg') },
+  { id: "3", uri: require('../assets/3.jpg') },
+  { id: "4", uri: require('../assets/4.jpg') },
+  { id: "5", uri: require('../assets/5.jpg') },
+]
 
-const ProfileScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
+		<View style={styles.image}>
+			<Image 
+				source={user[4].uri}
+				style={{ width: 395, height: "100%"}}
+			/>
+		</View>	
+		
+			<View style={styles.topka}>
+				<Top/>
+			</View>
+				
 		<View style={styles.footer}>
 			<View style={styles.footer_button}>
 			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
@@ -27,9 +45,7 @@ const ProfileScreen = ({ navigation }) => {
 
 		<View style={styles.footer_button}>
 			<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
-				<FontAwesome name='user' size={35}
-				color={navigation.navigate === 'ChatScreen' ? currentColor : nonColor
-				}/>
+				<FontAwesome name='user' size={35}/>
 			</TouchableOpacity>
 			</View>
 		</View>
@@ -76,4 +92,4 @@ const styles = StyleSheet.create({
    }
 });
 
-export default ProfileScreen;
+export default HomeScreen;

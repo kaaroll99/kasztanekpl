@@ -1,19 +1,79 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import * as React from 'react';
+import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import {FontAwesome} from '@expo/vector-icons';
 
-export default function ChatScreen() {
-    return (
-    <View style={styles.container}>
-		<Text>Chat Screen</Text>
-    </View>
+const currentColor = 'green'
+const nonColor = 'white'
+
+const ChatScreen = ({ navigation }) => {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+		<View style={styles.footer}>
+			<View style={styles.footer_button}>
+			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
+		<Image 
+			style={styles.kasztanek}
+			source={require('../assets/logo-transparent.png')}
+			size={27}
+			/>
+			</TouchableOpacity>
+		</View>
+
+		<View style={styles.footer_button}>
+			<TouchableOpacity onPress={() => navigation.navigate('ChatScreen')}>
+				<FontAwesome name='comments' size={35}
+				color={navigation.navigate === 'ChatScreen' ? currentColor : nonColor
+				}/>
+			</TouchableOpacity>	
+		</View>
+
+		<View style={styles.footer_button}>
+			<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
+				<FontAwesome name='user' size={35}/>
+			</TouchableOpacity>
+			</View>
+		</View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-	alignItems: 'center',
-    justifyContent: 'center',
+	flex: 1,
   },
+  
+  topka:{
+	flex:1,
+	borderWidth:3,
+	borderColor: "red",
+	position:'absolute',
+	width:'100%',
+	 
+  },
+
+  image:{
+	  flex:2,
+	  borderWidth:3,
+	  borderColor: "green",
+  } ,
+  
+  footer:{
+	height:80,
+	justifyContent:'flex-end',
+	alignItems: 'flex-end',
+	flex:3,
+	borderWidth:3,
+	borderColor: "blue",
+	flexDirection: "row",
+	backgroundColor:"gray",
+	justifyContent: "space-around",
+  },
+  
+   kasztanek:{
+	width: 40,
+    height: 40,
+    resizeMode: 'stretch'
+   }
 });
+
+export default ChatScreen;
