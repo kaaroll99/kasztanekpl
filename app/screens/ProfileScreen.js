@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import {FontAwesome} from '@expo/vector-icons';
 
-const currentColor = 'green'
+const currentColor = 'yellow'
 const nonColor = 'white'
 
 const ProfileScreen = ({ navigation }) => {
@@ -11,11 +11,7 @@ const ProfileScreen = ({ navigation }) => {
 		<View style={styles.footer}>
 			<View style={styles.footer_button}>
 			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
-		<Image 
-			style={styles.kasztanek}
-			source={require('../assets/logo-transparent.png')}
-			size={27}
-			/>
+				<FontAwesome name='home' size={35}/>
 			</TouchableOpacity>
 		</View>
 
@@ -28,7 +24,7 @@ const ProfileScreen = ({ navigation }) => {
 		<View style={styles.footer_button}>
 			<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
 				<FontAwesome name='user' size={35}
-				color={navigation.navigate === 'ChatScreen' ? currentColor : nonColor
+				color={navigation.navigate === 'ChatScreen' ? nonColor : currentColor 
 				}/>
 			</TouchableOpacity>
 			</View>

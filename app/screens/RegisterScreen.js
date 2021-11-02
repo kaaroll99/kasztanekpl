@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Button, View, Text, SafeAreaView, TextInput, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Button, View, Text, SafeAreaView, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
 
 const RegisterScreen = ({ navigation }) => {
 	const [email, setEmail] = useState("");
@@ -10,10 +10,11 @@ const RegisterScreen = ({ navigation }) => {
 	const [age, setAge] = useState("");
 	const [country, setCountry] = useState("");
 	const [location, setLocation] = useState("");
+	const [sex, setSex] = useState("");
   return (
     <SafeAreaView style={{ flex: 1 }}>
+<ScrollView>
 	  <View style={styles.container}>
-		  
 		  <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
@@ -29,6 +30,15 @@ const RegisterScreen = ({ navigation }) => {
 				  placeholder="SURNAME"
 				  placeholderTextColor="#3040B3"
 				  onChangeText={(surname) => setSurname(surname)}
+				/>
+		  </View>
+		  
+		  <View style={styles.block}>
+				<TextInput
+				  style={styles.TextInput}
+				  placeholder="SEX"
+				  placeholderTextColor="#3040B3"
+				  onChangeText={(sex) => setSex(sex)}
 				/>
 		  </View>
 		  
@@ -82,6 +92,7 @@ const RegisterScreen = ({ navigation }) => {
 				<Text style={styles.text_login}>REGISTER</Text>
 		  </TouchableOpacity>
 	  </View>
+</ScrollView>
     </SafeAreaView>
   );
 }

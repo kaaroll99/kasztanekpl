@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import {FontAwesome} from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 import Top from '../components/Top.js';
-
-export var exampleChangeUser = 1;
-
-
+	
 export const user = [
   { name: "Merlin", uri: require('../assets/1.jpeg'), location: "New York", age: "34" },
   { name: "Kasia", uri: require('../assets/2.jpg'), location: "Kielce",age: "22"},
@@ -14,43 +12,59 @@ export const user = [
   { name: "Antonia", uri: require('../assets/5.jpg'), location: "Sinsinati",age: "18"},
 ]
 
+const currentColor = 'gold'
+const nonColor = 'black'
+
 const HomeScreen = ({ navigation }) => {
+const [exampleChangeUser, setExampleChangeUser] = useState(0);
   return (
     <SafeAreaView style={styles.container}>
-
+		<View style={styles.inImageTop}>
+				<Text style={styles.text_name}>
+					{user[exampleChangeUser].name}, {user[exampleChangeUser].age}
+				</Text>
+		
+				<Text style={styles.text_loc}>
+					<EvilIcons name="location" size={24} color="white" />
+					<Text>
+						{user[exampleChangeUser].location}
+					</Text>
+				</Text>
+			</View>
 		<View style={styles.image}>
 			<Image 
 				source={user[exampleChangeUser].uri}
 				style={{ width: 395, height: "100%", borderRadius:20}}
 			/>
+			
 			<View style={styles.inImage}>
 				<View style={styles.nopeButton}>
-					<TouchableOpacity onPress={() => exampleChangeUser = 4}>
-						<FontAwesome name='times-circle' size={50} color={"red"}/>
+					<TouchableOpacity onPress={() =>
+						exampleChangeUser === 4 ? setExampleChangeUser(0) : setExampleChangeUser(exampleChangeUser+1)
+					}>
+						<FontAwesome name='close' size={50} color={"red"}/>
 					</TouchableOpacity>
 				</View>
 				
 				<View style={styles.yeesButton}>
-					<TouchableOpacity >
+					<TouchableOpacity onPress={() => 
+						exampleChangeUser === 4 ? setExampleChangeUser(0) : setExampleChangeUser(exampleChangeUser+1)
+					}>
 						<FontAwesome name='heart' size={50} color={"lime"}/>
 					</TouchableOpacity>
 				</View>
 			</View>
 		</View>	
-		
-		<View style={styles.topka}>
-			<Top/>
-		</View>
+
 
 		<View style={styles.footer}>
 			<View style={styles.footer_button}>
 			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
-			<Image 
-				style={styles.kasztanek}
-				source={require('../assets/logo-bw.png')}
-				size={27}
+				<FontAwesome name='home' 
+				size={35}
+				color={navigation.navigate === 'HomeScreen' ? nonColor : currentColor}
 				/>
-				</TouchableOpacity>
+			</TouchableOpacity>
 			</View>
 
 			<View style={styles.footer_button}>
@@ -75,18 +89,10 @@ const styles = StyleSheet.create({
 	flex: 1,
 	backgroundColor:"white",
   },
-  
-  topka:{
-	marginTop:50,
-	position:"absolute",
-	flex:1,
-	width:'100%',
-	 
-  },
 
   image:{
 	marginTop:40,  
-	height:670,
+	height:700,
   } ,
 
   obrazek:{
@@ -118,7 +124,6 @@ const styles = StyleSheet.create({
 	height:80,
 	marginTop:-80,
 	flexDirection:"row",
-	alignItems: 'center',
     justifyContent: 'space-around',
    },
    
@@ -136,7 +141,40 @@ const styles = StyleSheet.create({
 	borderWidth:2,
 	borderColor:"lime",
 	height:"100%",
-   }
+   },
+   
+   text_name:{
+	fontSize:27,
+	width:"100%",
+	color: 'white',
+	textShadowOffset: {width:0, height:0},
+	textShadowColor: 'black',
+	textShadowRadius: 10,
+	paddingBottom: 7,
+	paddingLeft:10,
+	textAlign:"left", 
+  }, 
+  
+  inImageTop:{
+	borderWidth:3,
+	borderColor:'gold',
+	position:'absolute',
+	marginTop:40,
+	zIndex:1,
+	width:'100%',
+  },
+
+  text_loc:{
+	fontSize:20,
+	width:"100%",
+	fontWeight: 'bold',
+	paddingLeft:10,
+	color: 'white',
+	textShadowOffset: {width:0, height:0},
+	textShadowColor: 'black',
+	textShadowRadius: 10,
+	textAlign:"left",
+},
 });
 
 export default HomeScreen;
