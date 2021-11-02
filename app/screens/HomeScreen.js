@@ -15,40 +15,45 @@ const user = [
 const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
+
+		
 		<View style={styles.image}>
 			<Image 
 				source={user[4].uri}
-				style={{ width: 395, height: "100%"}}
+				style={{ width: 395, height: "100%", borderRadius:20}}
 			/>
 		</View>	
 		
-			<View style={styles.topka}>
-				<Top/>
-			</View>
-				
+
+		
+		<View style={styles.topka}>
+			<Top/>
+		</View>
+
 		<View style={styles.footer}>
 			<View style={styles.footer_button}>
 			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
-		<Image 
-			style={styles.kasztanek}
-			source={require('../assets/logo-transparent.png')}
-			size={27}
-			/>
-			</TouchableOpacity>
-		</View>
-
-		<View style={styles.footer_button}>
-			<TouchableOpacity onPress={() => navigation.navigate('ChatScreen')}>
-				<FontAwesome name='comments' size={35}/>
-			</TouchableOpacity>	
-		</View>
-
-		<View style={styles.footer_button}>
-			<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
-				<FontAwesome name='user' size={35}/>
-			</TouchableOpacity>
+			<Image 
+				style={styles.kasztanek}
+				source={require('../assets/logo-bw.png')}
+				size={27}
+				/>
+				</TouchableOpacity>
 			</View>
-		</View>
+
+			<View style={styles.footer_button}>
+				<TouchableOpacity onPress={() => navigation.navigate('ChatScreen')}>
+					<FontAwesome name='comments' size={35}/>
+				</TouchableOpacity>	
+			</View>
+
+			<View style={styles.footer_button}>
+				<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
+					<FontAwesome name='user' size={35}/>
+				</TouchableOpacity>
+				</View>
+		</View>		
+		
     </SafeAreaView>
   );
 }
@@ -56,32 +61,36 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
 	flex: 1,
+	backgroundColor:"white",
   },
   
   topka:{
+	marginTop:50,
+	position:"absolute",
 	flex:1,
-	borderWidth:3,
-	borderColor: "red",
-	position:'absolute',
 	width:'100%',
 	 
   },
 
   image:{
-	  flex:2,
-	  borderWidth:3,
-	  borderColor: "green",
+	marginTop:40,  
+	height:670,
   } ,
+
+  obrazek:{
+    width: 395,
+    height: "100%",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
   
   footer:{
-	height:80,
-	justifyContent:'flex-end',
+	flex:1,
+	height:70,
+	width:"100%",
 	alignItems: 'flex-end',
-	flex:3,
-	borderWidth:3,
-	borderColor: "blue",
+	paddingBottom:15,
 	flexDirection: "row",
-	backgroundColor:"gray",
 	justifyContent: "space-around",
   },
   

@@ -12,8 +12,8 @@ const LoginScreen = ({ navigation }) => {
 		  <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="Login"
-				  placeholderTextColor="black"
+				  placeholder="LOGIN"
+				  placeholderTextColor="#3040B3"
 				  onChangeText={(email) => setEmail(email)}
 				/>
 		  </View>
@@ -21,15 +21,15 @@ const LoginScreen = ({ navigation }) => {
 		  <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="Password."
-				  placeholderTextColor="black"
+				  placeholder="PASSWORD"
+				  placeholderTextColor="#3040B3"
 				  secureTextEntry={true}
 				  onChangeText={(password) => setPassword(password)}
 				/>
 		  </View>
 		  
 		  <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('HomeScreen')}>
-				<Text>LOGIN</Text>
+				<Text style={styles.text_login}>LOGIN</Text>
 		  </TouchableOpacity>
 	  </View>
     </SafeAreaView>
@@ -39,31 +39,44 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
 
   block: {
 	borderWidth: 3,
-    borderColor: "red",
-    width: "70%",
-    height: 45,
+    borderColor: "#3040B3",
+    width: "80%",
+    height: 65,
+	marginTop:20,
     alignItems: "center",
+    borderRadius:10,
   },
 
   TextInput: {
     height: 50,
+	width:100,
+	textAlign:"center",
     flex: 1,
   },
 
   loginButton: {
-    width: "80%",
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
-    borderWidth: 3,
-    borderColor: "green",
+  	height: "10%",
+	width: "100%",
+	backgroundColor: "#3040B3",
+	color: 'white',
+	alignItems: 'center',
+  	justifyContent: 'center',
+	marginTop:427,
+	borderTopLeftRadius: 20,
+	borderTopRightRadius:20,
   },
+
+  text_login:{
+	color: 'white',
+	fontSize: 25,
+	fontWeight: 'bold',
+}
 });
 export default LoginScreen;

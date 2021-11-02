@@ -17,8 +17,8 @@ const RegisterScreen = ({ navigation }) => {
 		  <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="Name"
-				  placeholderTextColor="black"
+				  placeholder="NAME"
+				  placeholderTextColor="#3040B3"
 				  onChangeText={(name) => setName(name)}
 				/>
 		  </View>
@@ -26,8 +26,8 @@ const RegisterScreen = ({ navigation }) => {
 		  <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="Surname"
-				  placeholderTextColor="black"
+				  placeholder="SURNAME"
+				  placeholderTextColor="#3040B3"
 				  secureTextEntry={true}
 				  onChangeText={(surname) => setSurname(surname)}
 				/>
@@ -36,8 +36,8 @@ const RegisterScreen = ({ navigation }) => {
 		  <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="Age"
-				  placeholderTextColor="black"
+				  placeholder="AGE"
+				  placeholderTextColor="#3040B3"
 				  secureTextEntry={true}
 				  onChangeText={(age) => setAge(age)}
 				/>
@@ -46,8 +46,8 @@ const RegisterScreen = ({ navigation }) => {
 		  <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="Countrey"
-				  placeholderTextColor="black"
+				  placeholder="COUNTRY"
+				  placeholderTextColor="#3040B3"
 				  secureTextEntry={true}
 				  onChangeText={(country) => setCountry(country)}
 				/>
@@ -56,8 +56,8 @@ const RegisterScreen = ({ navigation }) => {
 		  <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="Location"
-				  placeholderTextColor="black"
+				  placeholder="LOCATION"
+				  placeholderTextColor="#3040B3"
 				  secureTextEntry={true}
 				  onChangeText={(location) => setLocation(location)}
 				/>
@@ -66,8 +66,8 @@ const RegisterScreen = ({ navigation }) => {
 		   <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="Name"
-				  placeholderTextColor="black"
+				  placeholder="NAME"
+				  placeholderTextColor="#3040B3"
 				  onChangeText={(email) => setEmail(email)}
 				/>
 		  </View>
@@ -75,15 +75,15 @@ const RegisterScreen = ({ navigation }) => {
 		  <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="Password"
-				  placeholderTextColor="black"
+				  placeholder="PASSWORD"
+				  placeholderTextColor="#3040B3"
 				  secureTextEntry={true}
 				  onChangeText={(password) => setPassword(password)}
 				/>
 		  </View>
 		  
 		  <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('FirstScreen')}>
-				<Text>Register</Text>
+				<Text style={styles.text_login}>REGISTER</Text>
 		  </TouchableOpacity>
 	  </View>
     </SafeAreaView>
@@ -93,31 +93,44 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
 
   block: {
 	borderWidth: 3,
-    borderColor: "red",
-    width: "70%",
-    height: 45,
+    borderColor: "#3040B3",
+    width: "80%",
+    height: 55,
+	marginTop:20,
     alignItems: "center",
+    borderRadius:10,
   },
 
   TextInput: {
     height: 50,
+	width:100,
+	textAlign:"center",
     flex: 1,
   },
 
   loginButton: {
-    width: "80%",
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
-    borderWidth: 3,
-    borderColor: "green",
+    height: "10%",
+	width: "100%",
+	backgroundColor: "#3040B3",
+	color: 'white',
+	alignItems: 'center',
+  	justifyContent: 'center',
+	marginTop:72,
+	borderTopLeftRadius: 20,
+	borderTopRightRadius:20,
   },
+
+  text_login:{
+	color: 'white',
+	fontSize: 25,
+	fontWeight: 'bold',
+}
 });
 export default RegisterScreen;

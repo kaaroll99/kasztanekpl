@@ -19,10 +19,12 @@ export default function App() {
         <Stack.Screen
           name="FirstScreen"
           component={FirstScreen}
+          options={{headerShown:false}}
         />
         <Stack.Screen
           name="HomeScreen"
           component={HomeScreen}
+          options={{headerShown:false}}
         />
 		
 		<Stack.Screen

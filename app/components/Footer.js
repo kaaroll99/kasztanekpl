@@ -37,7 +37,6 @@ const Footer = ({ navigation }) =>{
 const styles = StyleSheet.create({
   container: {
     height: 80,
-	zIndex:2,
 	width: "100%",
 	flexDirection: "row",
 	backgroundColor:"gray",

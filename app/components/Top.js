@@ -21,31 +21,36 @@ export default function  Top(){
 
 const styles = StyleSheet.create({
   container: {
-    height: 80,
+    height: 50,
 	width: "100%",
-	justifyContent: "space-around",
-	padding: 15,
-	borderTopLeftRadius: 20,
-	borderTopRightRadius: 20,
+	flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
 
   text_name:{
-	fontSize:30,
+	fontSize:27,
+	width:"100%",
 	color: 'white',
 	textShadowOffset: {width:0, height:0},
 	textShadowColor: 'black',
 	textShadowRadius: 10,
-	paddingBottom: 10,
+	paddingBottom: 7,
+	paddingLeft:10,
+	textAlign:"left",
+	
 	  
   },
 
   text_loc:{
 	fontSize:20,
+	width:"100%",
 	fontWeight: 'bold',
-	paddingTop:10,
+	paddingLeft:10,
 	color: 'white',
 	textShadowOffset: {width:0, height:0},
 	textShadowColor: 'black',
 	textShadowRadius: 10,
+	textAlign:"left",
 },
 });

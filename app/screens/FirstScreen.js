@@ -31,20 +31,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
 	width: "100%",
-	alignItems: 'center',
-    justifyContent: 'flex-end',
-	backgroundColor: 'rgb(255,255,255)'
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+	backgroundColor: 'rgb(255,255,255)',
   },
   
   logo:{
-	marginBottom:300,
+	marginBottom:355,
+	marginTop:100,
 	height:250,
 	width:250,
 	},
 	
 	button_login:{
 	height: "10%",
-	width: "49%",
+	width: "50%",
 	backgroundColor: "#3040B3",
 	color: 'white',
 	alignItems: 'center',
@@ -55,13 +57,14 @@ const styles = StyleSheet.create({
 
   button_register:{
 	height: "10%",
-	width: "49%",
+	width: "50%",
 	backgroundColor: "#945522",
 	color: 'white',
 	alignItems: 'center',
     justifyContent: 'center',
 	borderTopLeftRadius: 20,
 	borderTopRightRadius:20,
+	
   },
 
   text_login:{
