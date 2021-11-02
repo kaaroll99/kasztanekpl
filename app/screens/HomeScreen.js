@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import {FontAwesome} from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
-import Top from '../components/Top.js';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
 	
 export const user = [
   { name: "Merlin", uri: require('../assets/1.jpeg'), location: "New York", age: "34" },
@@ -12,13 +13,14 @@ export const user = [
   { name: "Antonia", uri: require('../assets/5.jpg'), location: "Sinsinati",age: "18"},
 ]
 
-const currentColor = 'gold'
-const nonColor = 'black'
+const currentColor = '#3040B3'
+const nonColor = 'red'
 
 const HomeScreen = ({ navigation }) => {
 const [exampleChangeUser, setExampleChangeUser] = useState(0);
   return (
     <SafeAreaView style={styles.container}>
+		<StatusBar style="auto" />
 		<View style={styles.inImageTop}>
 				<Text style={styles.text_name}>
 					{user[exampleChangeUser].name}, {user[exampleChangeUser].age}
@@ -34,7 +36,7 @@ const [exampleChangeUser, setExampleChangeUser] = useState(0);
 		<View style={styles.image}>
 			<Image 
 				source={user[exampleChangeUser].uri}
-				style={{ width: 395, height: "100%", borderRadius:20}}
+				style={{ width: "100%", height: "100%", borderRadius:20}}
 			/>
 			
 			<View style={styles.inImage}>
@@ -42,7 +44,7 @@ const [exampleChangeUser, setExampleChangeUser] = useState(0);
 					<TouchableOpacity onPress={() =>
 						exampleChangeUser === 4 ? setExampleChangeUser(0) : setExampleChangeUser(exampleChangeUser+1)
 					}>
-						<FontAwesome name='close' size={50} color={"red"}/>
+						<FontAwesome name='close' size={60} color={"red"}/>
 					</TouchableOpacity>
 				</View>
 				
@@ -60,7 +62,7 @@ const [exampleChangeUser, setExampleChangeUser] = useState(0);
 		<View style={styles.footer}>
 			<View style={styles.footer_button}>
 			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
-				<FontAwesome name='home' 
+				<MaterialCommunityIcons name='cards' 
 				size={35}
 				color={navigation.navigate === 'HomeScreen' ? nonColor : currentColor}
 				/>
@@ -119,8 +121,6 @@ const styles = StyleSheet.create({
    },
    
    inImage:{
-	borderWidth:2,
-	borderColor:"black",
 	height:80,
 	marginTop:-80,
 	flexDirection:"row",
@@ -130,16 +130,12 @@ const styles = StyleSheet.create({
    nopeButton:{
 	alignItems: 'center',
     justifyContent: 'space-around',
-	borderWidth:2,
-	borderColor:"red",
 	height:"100%",
    },
    
    yeesButton:{
 	alignItems: 'center',
     justifyContent: 'space-around',
-	borderWidth:2,
-	borderColor:"lime",
 	height:"100%",
    },
    
@@ -156,10 +152,8 @@ const styles = StyleSheet.create({
   }, 
   
   inImageTop:{
-	borderWidth:3,
-	borderColor:'gold',
 	position:'absolute',
-	marginTop:40,
+	marginTop:90,
 	zIndex:1,
 	width:'100%',
   },
