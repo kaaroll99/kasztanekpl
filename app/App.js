@@ -8,7 +8,6 @@ import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ChatScreen from './screens/ChatScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import Footer from './components/Footer';
 
 const Stack = createStackNavigator();
 

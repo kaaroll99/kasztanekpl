@@ -1,30 +1,42 @@
-import * as React from 'react';
+import React, { useState } from "react";
 import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import {FontAwesome} from '@expo/vector-icons';
 import Top from '../components/Top.js';
-import Footer from '../components/Footer.js';
 
-const user = [
-  { id: "1", uri: require('../assets/1.jpeg') },
-  { id: "2", uri: require('../assets/2.jpg') },
-  { id: "3", uri: require('../assets/3.jpg') },
-  { id: "4", uri: require('../assets/4.jpg') },
-  { id: "5", uri: require('../assets/5.jpg') },
+export var exampleChangeUser = 1;
+
+
+export const user = [
+  { name: "Merlin", uri: require('../assets/1.jpeg'), location: "New York", age: "34" },
+  { name: "Kasia", uri: require('../assets/2.jpg'), location: "Kielce",age: "22"},
+  { name: "Natalia", uri: require('../assets/3.jpg'), location: "Rzeszów",age: "22"},
+  { name: "Daniel", uri: require('../assets/4.jpg'), location: "Górno",age: "21"},
+  { name: "Antonia", uri: require('../assets/5.jpg'), location: "Sinsinati",age: "18"},
 ]
 
 const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
 
-		
 		<View style={styles.image}>
 			<Image 
-				source={user[4].uri}
+				source={user[exampleChangeUser].uri}
 				style={{ width: 395, height: "100%", borderRadius:20}}
 			/>
+			<View style={styles.inImage}>
+				<View style={styles.nopeButton}>
+					<TouchableOpacity onPress={() => exampleChangeUser = 4}>
+						<FontAwesome name='times-circle' size={50} color={"red"}/>
+					</TouchableOpacity>
+				</View>
+				
+				<View style={styles.yeesButton}>
+					<TouchableOpacity >
+						<FontAwesome name='heart' size={50} color={"lime"}/>
+					</TouchableOpacity>
+				</View>
+			</View>
 		</View>	
-		
-
 		
 		<View style={styles.topka}>
 			<Top/>
@@ -98,6 +110,32 @@ const styles = StyleSheet.create({
 	width: 40,
     height: 40,
     resizeMode: 'stretch'
+   },
+   
+   inImage:{
+	borderWidth:2,
+	borderColor:"black",
+	height:80,
+	marginTop:-80,
+	flexDirection:"row",
+	alignItems: 'center',
+    justifyContent: 'space-around',
+   },
+   
+   nopeButton:{
+	alignItems: 'center',
+    justifyContent: 'space-around',
+	borderWidth:2,
+	borderColor:"red",
+	height:"100%",
+   },
+   
+   yeesButton:{
+	alignItems: 'center',
+    justifyContent: 'space-around',
+	borderWidth:2,
+	borderColor:"lime",
+	height:"100%",
    }
 });
 

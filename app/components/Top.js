@@ -3,17 +3,21 @@ import { StyleSheet, Text, View, Image} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {FontAwesome} from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
+import {user, exampleChangeUser} from '../screens/HomeScreen';
+
 
 export default function  Top(){
     return (
     <View style={styles.container}>
 		<Text style={styles.text_name}>
-			Kura, 21
+			{user[exampleChangeUser].name}, {user[exampleChangeUser].age}
 		</Text>
 		
 		<Text style={styles.text_loc}>
 		<EvilIcons name="location" size={24} color="white" />
-			Kielce
+			<Text>
+				{user[exampleChangeUser].location}
+			</Text>
 		</Text>
     </View>
   );

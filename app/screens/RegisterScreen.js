@@ -28,7 +28,6 @@ const RegisterScreen = ({ navigation }) => {
 				  style={styles.TextInput}
 				  placeholder="SURNAME"
 				  placeholderTextColor="#3040B3"
-				  secureTextEntry={true}
 				  onChangeText={(surname) => setSurname(surname)}
 				/>
 		  </View>
@@ -38,7 +37,6 @@ const RegisterScreen = ({ navigation }) => {
 				  style={styles.TextInput}
 				  placeholder="AGE"
 				  placeholderTextColor="#3040B3"
-				  secureTextEntry={true}
 				  onChangeText={(age) => setAge(age)}
 				/>
 		  </View>
@@ -48,7 +46,6 @@ const RegisterScreen = ({ navigation }) => {
 				  style={styles.TextInput}
 				  placeholder="COUNTRY"
 				  placeholderTextColor="#3040B3"
-				  secureTextEntry={true}
 				  onChangeText={(country) => setCountry(country)}
 				/>
 		  </View> 
@@ -58,7 +55,6 @@ const RegisterScreen = ({ navigation }) => {
 				  style={styles.TextInput}
 				  placeholder="LOCATION"
 				  placeholderTextColor="#3040B3"
-				  secureTextEntry={true}
 				  onChangeText={(location) => setLocation(location)}
 				/>
 		  </View>
@@ -66,7 +62,7 @@ const RegisterScreen = ({ navigation }) => {
 		   <View style={styles.block}>
 				<TextInput
 				  style={styles.TextInput}
-				  placeholder="NAME"
+				  placeholder="EMAIL"
 				  placeholderTextColor="#3040B3"
 				  onChangeText={(email) => setEmail(email)}
 				/>
