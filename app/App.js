@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NativeBaseProvider} from 'native-base';
 import { StyleSheet, Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -13,6 +14,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
+<NativeBaseProvider>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="FirstScreen">
         <Stack.Screen
@@ -47,6 +49,7 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+</NativeBaseProvider>
   );
 }
 
