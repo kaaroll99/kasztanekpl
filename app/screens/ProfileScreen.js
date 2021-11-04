@@ -1,18 +1,73 @@
 import * as React from 'react';
-import { NativeBaseProvider, HStack, Avatar} from 'native-base';
+import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon} from 'native-base';
+import { Path } from "react-native-svg";
 import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
-import {FontAwesome} from '@expo/vector-icons';
-import {user} from './HomeScreen'
+import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
+import {user} from './HomeScreen';
 
 const currentColor = 'yellow'
 const nonColor = 'white'
 
-export const Example = () => {
+export function Example() {
+  const { isOpen, onOpen, onClose } = useDisclose()
   return (
-    <HStack space={2}>
-      <Avatar size="2xl" source={user[3].uri}>Zdjecie</Avatar>
-	</HStack>
-	)
+    <>
+		<HStack space={2}>
+			<TouchableOpacity onPress={onOpen}>
+				<Avatar size="2xl" source={user[3].uri} >Zdjecie</Avatar>
+			</ TouchableOpacity>
+		</HStack>
+      <Actionsheet isOpen={isOpen} onClose={onClose} size="full">
+        <Actionsheet.Content>
+          <Actionsheet.Item
+            startIcon={
+              <Icon
+                as={MaterialIcons}
+                color="trueGray.400"
+                mr="1"
+                size="6"
+                name="camera"
+              />
+            }
+          >
+            Take a Photo
+          </Actionsheet.Item>
+          <Actionsheet.Item
+            startIcon={
+              <Icon
+                as={MaterialIcons}
+                name="collections"
+                color="trueGray.400"
+                mr="1"
+                size="6"
+              />
+            }
+          >
+            Choose from gallery
+          </Actionsheet.Item>
+          <Actionsheet.Item
+            p={3}
+            startIcon={
+              <Icon
+                color="trueGray.400"
+                mr="1"
+                h="24"
+                w="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <Path d="M12.0007 10.5862L16.9507 5.63623L18.3647 7.05023L13.4147 12.0002L18.3647 16.9502L16.9507 18.3642L12.0007 13.4142L7.05072 18.3642L5.63672 16.9502L10.5867 12.0002L5.63672 7.05023L7.05072 5.63623L12.0007 10.5862Z" />
+              </Icon>
+            }
+			
+			onPress={onClose}
+          >
+            Cancel
+          </Actionsheet.Item>
+        </Actionsheet.Content>
+      </Actionsheet>
+    </>
+  )
 }
 
 const ProfileScreen = ({ navigation }) => {
@@ -29,7 +84,13 @@ const ProfileScreen = ({ navigation }) => {
 				<View style={styles.buttony}>
 					<TouchableOpacity>
 						<Text style={styles.buttonStyle}>
-							<FontAwesome name='camera' size={35}/>
+							<FontAwesome name='circle' size={35}/>
+						</Text>
+					</TouchableOpacity>
+					
+					<TouchableOpacity>
+						<Text style={styles.buttonStyle}>
+							<MaterialIcons name='add-a-photo' size={35}/>
 						</Text>
 					</TouchableOpacity>
 					<TouchableOpacity>
@@ -55,7 +116,7 @@ const ProfileScreen = ({ navigation }) => {
 					</Text>
 					
 					<Text>
-							<FontAwesome name='facebook' size={35}/> DanielS
+							<FontAwesome name='facebook-official' size={35}/> DanielS
 					</Text>
 					
 					<Text>
@@ -119,8 +180,8 @@ const styles = StyleSheet.create({
 	borderColor:'red',
 	height:"50%",
 	alignItems: 'center',
-	borderBottomLeftRadius:200,
-	borderBottomRightRadius:200,
+	borderBottomLeftRadius:100,
+	borderBottomRightRadius:100,
   }, 
   
   inAccount2:{
