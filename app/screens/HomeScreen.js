@@ -13,6 +13,8 @@ export const user = [
   { name: "Antonia", uri: require('../assets/5.jpg'), location: "Sinsinati",age: "18"},
 ]
 
+export const userLove = []
+
 const currentColor = '#3040B3'
 const nonColor = 'red'
 

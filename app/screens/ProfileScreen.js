@@ -88,7 +88,7 @@ const ProfileScreen = ({ navigation }) => {
 						</Text>
 					</TouchableOpacity>
 					
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => navigation.navigate('SelfieScreen')}>
 						<Text style={styles.buttonStyle}>
 							<MaterialIcons name='add-a-photo' size={35}/>
 						</Text>

@@ -1,34 +1,40 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Button, View, Text, SafeAreaView, TextInput, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, TextInput, Image, TouchableOpacity } from 'react-native';
+import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon, FormControl,Stack,Input,WarningOutlineIcon,Divider,Radio,Select,CheckIcon,Button} from 'native-base';
 
 const LoginScreen = ({ navigation }) => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState(false);
+	const [password, setPassword] = useState(false);
+	const [show, setShow] = React.useState(false);
+	const [screen, setScreen] = React.useState(false);
+    const handleClick = () => setShow(!show);
   return (
     <SafeAreaView style={{ flex: 1 }}>
 	  <View style={styles.container}>
 		  
-		  <View style={styles.block}>
-				<TextInput
-				  style={styles.TextInput}
-				  placeholder="LOGIN"
-				  placeholderTextColor="#3040B3"
-				  onChangeText={(email) => setEmail(email)}
-				/>
-		  </View>
-		  
-		  <View style={styles.block}>
-				<TextInput
-				  style={styles.TextInput}
-				  placeholder="PASSWORD"
-				  placeholderTextColor="#3040B3"
-				  secureTextEntry={true}
-				  onChangeText={(password) => setPassword(password)}
-				/>
-		  </View>
-		  
-		  <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('HomeScreen')}>
+		  <FormControl>
+						<Stack mx="4">
+						
+						  <FormControl.Label>Login</FormControl.Label>
+								<Input type="text"  placeholder="Login" onChangeText={(login) => setLogin(login)}/>
+
+						  <FormControl.Label>Password</FormControl.Label>
+								<Input type="password"  placeholder="password" onChangeText={(password) => setPassword(password)}
+								type={show ? "text" : "password"}
+								overflow="visible"
+								InputRightElement={
+								<Button size="xs" m="1" onPress={handleClick}>
+								  {show ? "Hide" : "Show"}
+								</Button>
+								}
+								/>
+								
+						</Stack>
+			</FormControl>
+			
+		  <TouchableOpacity style={styles.loginButton} 
+		  onPress={() =>navigation.navigate('HomeScreen')}>
 				<Text style={styles.text_login}>LOGIN</Text>
 		  </TouchableOpacity>
 	  </View>
@@ -42,24 +48,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap',
-  },
-
-  block: {
-	borderWidth: 3,
-    borderColor: "#3040B3",
-    width: "80%",
-    height: 65,
-	marginTop:20,
-    alignItems: "center",
-    borderRadius:10,
-  },
-
-  TextInput: {
-    height: 50,
-	width:100,
-	textAlign:"center",
-    flex: 1,
-  },
+	borderWidth:4,
+	borderColor:"gold",
+},
 
   loginButton: {
   	height: "10%",

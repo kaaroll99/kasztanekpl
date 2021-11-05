@@ -1,13 +1,35 @@
-import * as React from 'react';
-import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView,} from 'react-native';
+import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon} from 'native-base';
 import {FontAwesome} from '@expo/vector-icons';
+import {user, userLove} from './HomeScreen';
 
 const currentColor = 'yellow'
 const nonColor = 'white'
 
 const ChatScreen = ({ navigation }) => {
+	
   return (
+<NativeBaseProvider>
     <SafeAreaView style={{ flex: 1 }}>
+		<View style={styles.main}>
+
+		</View>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{/*--------------------------------------FOOTER--------------------------------------*/}
 		<View style={styles.footer}>
 			<View style={styles.footer_button}>
 			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
@@ -30,6 +52,7 @@ const ChatScreen = ({ navigation }) => {
 			</View>
 		</View>
     </SafeAreaView>
+</NativeBaseProvider>
   );
 }
 
@@ -56,7 +79,7 @@ const styles = StyleSheet.create({
   footer:{
 	height:80,
 	justifyContent:'flex-end',
-	alignItems: 'flex-end',
+	alignItems: 'center',
 	flex:3,
 	borderWidth:3,
 	borderColor: "blue",
@@ -69,7 +92,15 @@ const styles = StyleSheet.create({
 	width: 40,
     height: 40,
     resizeMode: 'stretch'
-   }
+   },
+      
+   main:{
+	borderWidth:3,
+	borderColor:"green",
+	height:"90%",
+	justifyContent:'center',
+	alignItems: 'center',
+   },
 });
 
 export default ChatScreen;

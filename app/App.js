@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ChatScreen from './screens/ChatScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import SelfieScreen from './screens/SelfieScreen';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +47,11 @@ export default function App() {
 		<Stack.Screen
           name="ChatScreen"
           component={ChatScreen}
+        />
+		
+		<Stack.Screen
+          name="SelfieScreen"
+          component={SelfieScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
