@@ -84,18 +84,21 @@ const ProfileScreen = ({ navigation }) => {
 				<View style={styles.buttony}>
 					<TouchableOpacity>
 						<Text style={styles.buttonStyle}>
-							<FontAwesome name='circle' size={35}/>
+							<MaterialIcons name='settings' size={35}/>
+							Settings
 						</Text>
 					</TouchableOpacity>
 					
 					<TouchableOpacity onPress={() => navigation.navigate('SelfieScreen')}>
 						<Text style={styles.buttonStyle}>
 							<MaterialIcons name='add-a-photo' size={35}/>
+							add-a-photo
 						</Text>
 					</TouchableOpacity>
 					<TouchableOpacity>
 						<Text style={styles.buttonStyle}>
-							<FontAwesome name='circle' size={35}/>
+							<MaterialIcons name='edit' size={35}/>
+							edit info
 						</Text>
 					</TouchableOpacity>
 				</View>
