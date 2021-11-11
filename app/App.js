@@ -17,7 +17,7 @@ export default function App() {
   return (
 <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FirstScreen">
+      <Stack.Navigator initialRouteName="HomeScreen">
         <Stack.Screen
           name="FirstScreen"
           component={FirstScreen}
@@ -42,11 +42,13 @@ export default function App() {
 		<Stack.Screen
           name="ProfileScreen"
           component={ProfileScreen}
+          options={{headerShown:false}}
         />
 		
 		<Stack.Screen
           name="ChatScreen"
           component={ChatScreen}
+          options={{headerShown:false}}
         />
 		
 		<Stack.Screen

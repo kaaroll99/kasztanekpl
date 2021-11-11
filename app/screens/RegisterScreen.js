@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Text, SafeAreaView, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon, FormControl,Stack,Input,WarningOutlineIcon,Divider,Radio,Select,CheckIcon,Button} from 'native-base';
+import { fontSize } from "styled-system";
 
 const RegisterScreen = ({ navigation }) => {
 	const [login, setLogin] = useState(false);
@@ -152,7 +153,9 @@ const RegisterScreen = ({ navigation }) => {
 									<Input type="text"  placeholder="Location" onChangeText={(location) => setLocation(location)}/>
 						    </FormControl>
 					   </Stack>
-						<Button onPress={() => navigation.navigate('LoginScreen')} size="100">Register Now</Button>
+						<Button style={styles.registerButton} onPress={() => navigation.navigate('LoginScreen')} size="100">
+						<Text style={styles.text_register}>REGISTER</Text>
+						</Button>
 			  </View>
 			</ScrollView>
     </SafeAreaView>
@@ -162,8 +165,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    borderWidth:3,
-	borderColor:"red",
+  },
+
+  registerButton: {
+	height: "10%",
+ 	 width: "100%",
+  	backgroundColor: "#83BF28",
+  	color: 'white',
+  	alignItems: 'center',
+	justifyContent: 'center',
+	marginTop:40,
+	marginBottom:45,
+  	borderTopLeftRadius: 20,
+  	borderTopRightRadius:20,
+  },  
+
+  text_register:{
+	color: 'white',
+	fontSize: 25,
+	fontWeight: 'bold',
   },
 });
 export default RegisterScreen;

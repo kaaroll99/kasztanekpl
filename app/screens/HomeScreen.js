@@ -16,12 +16,13 @@ export const user = [
 export const userLove = []
 
 const currentColor = '#3040B3'
-const nonColor = 'red'
+const nonColor = 'gray'
 
 const HomeScreen = ({ navigation }) => {
 const [exampleChangeUser, setExampleChangeUser] = useState(0);
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+		<View style={styles.container2}>
 		<StatusBar style="auto" />
 		<View style={styles.inImageTop}>
 				<Text style={styles.text_name}>
@@ -60,31 +61,29 @@ const [exampleChangeUser, setExampleChangeUser] = useState(0);
 			</View>
 		</View>	
 
-
+		</View>
 		<View style={styles.footer}>
 			<View style={styles.footer_button}>
-			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
-				<MaterialCommunityIcons name='cards' 
-				size={35}
-				color={navigation.navigate === 'HomeScreen' ? nonColor : currentColor}
+			<TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
+				<MaterialCommunityIcons name='cards' size={30} color={currentColor}
 				/>
 			</TouchableOpacity>
 			</View>
 
 			<View style={styles.footer_button}>
 				<TouchableOpacity onPress={() => navigation.navigate('ChatScreen')}>
-					<FontAwesome name='comments' size={35}/>
+					<FontAwesome name='comments' size={30} color={'gray'}/>
 				</TouchableOpacity>	
 			</View>
 
 			<View style={styles.footer_button}>
 				<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
-					<FontAwesome name='user' size={35}/>
+					<FontAwesome name='user' size={30} color={'gray'}/>
 				</TouchableOpacity>
 				</View>
 		</View>		
 		
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -94,24 +93,22 @@ const styles = StyleSheet.create({
 	backgroundColor:"white",
   },
 
-  image:{
-	marginTop:40,  
-	height:700,
-  } ,
+  container2:{
+	width:"100%",
+	height:"90%",
+},
 
-  obrazek:{
-    width: 395,
-    height: "100%",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
+
+  image:{
+	marginTop:"9%",  
+	height:"96%",
+  } ,
   
   footer:{
-	flex:1,
-	height:70,
+	height:"8%",
 	width:"100%",
-	alignItems: 'flex-end',
-	paddingBottom:15,
+	alignItems: 'center',
+	paddingTop:"3%",
 	flexDirection: "row",
 	justifyContent: "space-around",
   },
@@ -155,7 +152,7 @@ const styles = StyleSheet.create({
   
   inImageTop:{
 	position:'absolute',
-	marginTop:90,
+	marginTop:50,
 	zIndex:1,
 	width:'100%',
   },

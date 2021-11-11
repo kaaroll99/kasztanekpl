@@ -39,17 +39,18 @@ const LoginScreen = ({ navigation }) => {
 	const [screen, setScreen] = React.useState(false);
     const handleClick = () => setShow(!show);
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    
 	  <View style={styles.container}>
-		  
+		<View style={styles.container2}>
+				  
 		  <FormControl>
 						<Stack mx="4">
 						
 						  <FormControl.Label>Login</FormControl.Label>
-								<Input type="text"  placeholder="Login" onChangeText={(login) => setLogin(login)}/>
+								<Input style={styles.input} type="text"  placeholder="Login" onChangeText={(login) => setLogin(login)}/>
 
 						  <FormControl.Label>Password</FormControl.Label>
-								<Input type="password"  placeholder="password" onChangeText={(password) => setPassword(password)}
+								<Input style={styles.input} type="password"  placeholder="password" onChangeText={(password) => setPassword(password)}
 								type={show ? "text" : "password"}
 								overflow="visible"
 								InputRightElement={
@@ -61,14 +62,18 @@ const LoginScreen = ({ navigation }) => {
 								
 						</Stack>
 			</FormControl>
+
 			
+			</View>
 		  <TouchableOpacity style={styles.loginButton} 
 		  onPress={() => validAuthorization(login,password) === true? navigation.navigate('HomeScreen'): showAlert}>
 			  {/*Dzialają alerty???????*/}
 				<Text style={styles.text_login}>LOGIN</Text>
 		  </TouchableOpacity>
+
+		
 	  </View>
-    </SafeAreaView>
+    
   );
 }
 const styles = StyleSheet.create({
@@ -78,8 +83,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     flexWrap: 'wrap',
-	borderWidth:4,
-	borderColor:"gold",
+},
+
+container2:{
+	width:"100%",
+	height:"90%",
+	alignItems: 'center',
+	justifyContent: 'center',
 },
 
   loginButton: {
@@ -89,15 +99,24 @@ const styles = StyleSheet.create({
 	color: 'white',
 	alignItems: 'center',
   	justifyContent: 'center',
-	marginTop:427,
 	borderTopLeftRadius: 20,
 	borderTopRightRadius:20,
   },
+
+  back_button: {
+	width:"100%",
+	height:"10%"
+},
 
   text_login:{
 	color: 'white',
 	fontSize: 25,
 	fontWeight: 'bold',
-}
+  },
+
+  input:{
+	height:50,
+  },
+
 });
 export default LoginScreen;
