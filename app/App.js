@@ -10,6 +10,8 @@ import RegisterScreen from './screens/RegisterScreen';
 import ChatScreen from './screens/ChatScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SelfieScreen from './screens/SelfieScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import {createDrawerNavigator,DrawerContentScrollView,DrawerItemList,DrawerItem,} from '@react-navigation/drawer';
 
 const Stack = createStackNavigator();
 
@@ -17,7 +19,7 @@ export default function App() {
   return (
 <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen">
+      <Stack.Navigator initialRouteName="FirstScreen">
         <Stack.Screen
           name="FirstScreen"
           component={FirstScreen}
@@ -42,18 +44,23 @@ export default function App() {
 		<Stack.Screen
           name="ProfileScreen"
           component={ProfileScreen}
-          options={{headerShown:false}}
+		  options={{headerShown:false}}
         />
 		
 		<Stack.Screen
           name="ChatScreen"
           component={ChatScreen}
-          options={{headerShown:false}}
+		  options={{headerShown:false}}
         />
 		
 		<Stack.Screen
           name="SelfieScreen"
           component={SelfieScreen}
+        />
+		
+		<Stack.Screen
+          name="SettingsScreen"
+          component={SettingsScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
