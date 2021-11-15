@@ -34,33 +34,37 @@ export default function App() {
 		<Stack.Screen
           name="RegisterScreen"
           component={RegisterScreen}
+          options={{ title: 'Register', headerBackTitle:'Back'}}
         />
 		
 		<Stack.Screen
           name="LoginScreen"
           component={LoginScreen}
+          options={{ title: 'Login', headerBackTitle:'Back'}}
         />
 		
 		<Stack.Screen
           name="ProfileScreen"
           component={ProfileScreen}
-		  options={{headerShown:false}}
+		      options={{headerShown:false}}
         />
 		
 		<Stack.Screen
           name="ChatScreen"
           component={ChatScreen}
-		  options={{headerShown:false}}
+		      options={{headerShown:false}}
         />
 		
 		<Stack.Screen
           name="SelfieScreen"
           component={SelfieScreen}
+          options={{ title: 'Selfie', headerBackTitle:'Back'}}
         />
 		
 		<Stack.Screen
           name="SettingsScreen"
           component={SettingsScreen}
+          options={{ title: 'Settings', headerBackTitle:'Back'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

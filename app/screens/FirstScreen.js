@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Button, View, Text, SafeAreaView, Image, TouchableOpacity, StatusBar } from 'react-native';
 
 const FirstScreen = ({ navigation }) => {
   return (
-    
+
 	<View style={styles.container}>
+		<StatusBar barStyle="dark-content" backgroundColor="white"/>
 		<View style={styles.container2}>
 		<Image
 			source={require('../assets/logo-transparent.png')}

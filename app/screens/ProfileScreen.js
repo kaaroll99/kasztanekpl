@@ -8,21 +8,6 @@ import {user} from './HomeScreen';
 const currentColor = 'yellow'
 const nonColor = 'white'
 
-export const Example2 = (saveInfo) => {
-  const [textAreaValue, setTextAreaValue] = useState(saveInfo)
-
-  const demoValueControlledTextArea = (e: any) => {
-    setTextAreaValue(e.currentTarget.value)
-  }
-
-  return (
-    <TextArea
-      value={textAreaValue}
-      onChange={demoValueControlledTextArea}
-    />
-  )
-}
-
 export function Example() {
   const { isOpen, onOpen, onClose } = useDisclose()
   return (
