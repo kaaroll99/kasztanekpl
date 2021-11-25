@@ -11,9 +11,41 @@ import ChatScreen from './screens/ChatScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SelfieScreen from './screens/SelfieScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import CustomDrawer from './components/CustomDrawer';
+import CustomTabs from './components/CustomTabs';
 import {createDrawerNavigator,DrawerContentScrollView,DrawerItemList,DrawerItem,} from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
+function Draw() {
+  return (
+      <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}
+      screenOptions={{
+        drawerActiveBackgroundColor: '#aa18ea',
+        drawerActiveTintColor: '#fff',
+        drawerInactiveTintColor: '#333',
+        drawerLabelStyle: {
+        },
+      }}>
+        <Drawer.Screen name="ChatScreen" component={ChatScreen} />
+      </Drawer.Navigator>
+  );
+}
+
+function Tabs() {
+  return (
+    <Tab.Navigator tabBar={props => <CustomTabs {...props} />}
+			screenOptions={{headerShown:false}}>
+      <Tab.Screen name="HomeScreen" component={HomeScreen} />
+      <Tab.Screen name="ChatScreen" component={Draw} />
+      <Tab.Screen name="ProfileScreen" component={ProfileScreen} />
+    </Tab.Navigator>
+  );
+}
+
 
 export default function App() {
   return (
@@ -27,7 +59,7 @@ export default function App() {
         />
         <Stack.Screen
           name="HomeScreen"
-          component={HomeScreen}
+          component={Tabs}
           options={{headerShown:false}}
         />
 		
@@ -51,7 +83,7 @@ export default function App() {
 		
 		<Stack.Screen
           name="ChatScreen"
-          component={ChatScreen}
+          component={Tabs}
 		      options={{headerShown:false}}
         />
 		

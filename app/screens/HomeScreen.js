@@ -66,8 +66,8 @@ const [exampleChangeUser, setExampleChangeUser] = useState(0);
 			</View>
 		</View>	
 
-		</View>
-		<View style={styles.footer}>
+		{/*</View>
+		 <View style={styles.footer}>
 			<View style={styles.footer_button}>
 			<TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
 				<MaterialCommunityIcons name='cards' size={30} color={currentColor}
@@ -85,8 +85,9 @@ const [exampleChangeUser, setExampleChangeUser] = useState(0);
 				<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
 					<FontAwesome name='user' size={30} color={'gray'}/>
 				</TouchableOpacity>
-				</View>
+				</View>*/}
 		</View>		
+		
 		
     </View>
   );

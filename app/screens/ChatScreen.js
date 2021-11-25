@@ -16,58 +16,6 @@ const ChatScreen = ({ navigation }) => {
     <SafeAreaView style={{ flex: 1 }}>
 		<View style={styles.main}>
 		
-			<Button my={2} onPress={() => setIsOpen(!isOpen)}>
-				Click Me to {isOpen ? 'hide' : 'show'}
-			</Button>
-		
-			<Slide in={isOpen} placement="left" style={{marginTop:0,}}>
-			<ScrollView>
-				<Box p="40px" color="white" mt="4" bg="teal.500" rounded="md">
-					<HStack space={2}>
-						<TouchableOpacity onPress={onOpen}>
-							<Avatar size="xl" source={user[2].uri} >Zdjecie</Avatar>
-								<Text>{user[2].name}</Text>
-							</TouchableOpacity>
-					</HStack>
-					
-					<HStack space={2} style={{marginTop:25}}>
-						<TouchableOpacity onPress={onOpen}>
-							<Avatar size="xl" source={user[1].uri} >Zdjecie</Avatar>
-							<Text>{user[1].name}</Text>
-						</TouchableOpacity>
-					</HStack>
-					
-					<HStack space={2} style={{marginTop:25}}>
-						<TouchableOpacity onPress={onOpen}>
-							<Avatar size="xl" source={user[0].uri} >Zdjecie</Avatar>
-							<Text>{user[0].name}</Text>
-						</TouchableOpacity>
-					</HStack>
-					
-					<HStack space={2}>
-						<TouchableOpacity onPress={onOpen}>
-							<Avatar size="xl" source={user[2].uri} >Zdjecie</Avatar>
-								<Text>{user[2].name}</Text>
-							</TouchableOpacity>
-					</HStack>
-					
-					<HStack space={2} style={{marginTop:25}}>
-						<TouchableOpacity onPress={onOpen}>
-							<Avatar size="xl" source={user[1].uri} >Zdjecie</Avatar>
-							<Text>{user[1].name}</Text>
-						</TouchableOpacity>
-					</HStack>
-					
-					<HStack space={2} style={{marginTop:25}}>
-						<TouchableOpacity onPress={onOpen}>
-							<Avatar size="xl" source={user[0].uri} >Zdjecie</Avatar>
-							<Text>{user[0].name}</Text>
-						</TouchableOpacity>
-					</HStack>
-				</Box>
-				</ScrollView>
-			</Slide>
-		
 		</View>
 
 	
@@ -83,7 +31,7 @@ const ChatScreen = ({ navigation }) => {
 	
 	
 	
-	{/*--------------------------------------FOOTER--------------------------------------*/}
+	{/*--------------------------------------FOOTER--------------------------------------
 		<View style={styles.footer}>
 			<View style={styles.footer_button}>
 			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
@@ -104,7 +52,7 @@ const ChatScreen = ({ navigation }) => {
 				<FontAwesome name='user' size={35}/>
 			</TouchableOpacity>
 			</View>
-		</View>
+		</View>*/}
     </SafeAreaView>
 </NativeBaseProvider>
   );

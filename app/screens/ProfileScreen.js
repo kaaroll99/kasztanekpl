@@ -139,7 +139,7 @@ const ProfileScreen = ({ navigation }) => {
 			</ScrollView>
 		</View>
 	
-	{/*--------------------------------------FOOTER--------------------------------------*/}
+	{/*--------------------------------------FOOTER--------------------------------------
 		<View style={styles.footer}>
 			<View style={styles.footer_button}>
 			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
@@ -161,7 +161,7 @@ const ProfileScreen = ({ navigation }) => {
 			</TouchableOpacity>
 			</View>
 		</View>
-		
+		*/}
 		<Modal isOpen={showModal} onClose={() => setShowModal(false)}>
 		<Modal.Content maxWidth="400px">
 			<Modal.CloseButton />
