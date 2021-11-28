@@ -15,33 +15,50 @@ import CustomDrawer from './components/CustomDrawer';
 import CustomTabs from './components/CustomTabs';
 import {createDrawerNavigator,DrawerContentScrollView,DrawerItemList,DrawerItem,} from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 function Draw() {
+	
   return (
       <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
+		headerShown:false, 
         drawerActiveBackgroundColor: '#aa18ea',
         drawerActiveTintColor: '#fff',
         drawerInactiveTintColor: '#333',
         drawerLabelStyle: {
         },
       }}>
-        <Drawer.Screen name="ChatScreen" component={ChatScreen} />
+        <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
       </Drawer.Navigator>
   );
 }
 
 function Tabs() {
   return (
-    <Tab.Navigator tabBar={props => <CustomTabs {...props} />}
-			screenOptions={{headerShown:false}}>
-      <Tab.Screen name="HomeScreen" component={HomeScreen} />
-      <Tab.Screen name="ChatScreen" component={Draw} />
-      <Tab.Screen name="ProfileScreen" component={ProfileScreen} />
+    <Tab.Navigator
+        screenOptions={{
+		headerShown:false, 
+		tabBarActiveTintColor: '#3040B3',
+		}}
+      >
+      <Tab.Screen name="Home" component={HomeScreen} options={{
+				tabBarLabel: 'Home',
+				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="cards" color={color} size={size} />),
+			}}
+		/>
+      <Tab.Screen name="Chat" component={ChatScreen} options={{
+				tabBarLabel: 'Chat',
+				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="chat" color={color} size={size} />),
+			}}/>
+      <Tab.Screen name="Profile" component={Draw} options={{
+				tabBarLabel: 'Profile',
+				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="account" color={color} size={size} />),
+			}}/>
     </Tab.Navigator>
   );
 }
@@ -51,7 +68,7 @@ export default function App() {
   return (
 <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FirstScreen">
+      <Stack.Navigator initialRouteName="HomeScreen">
         <Stack.Screen
           name="FirstScreen"
           component={FirstScreen}
@@ -77,7 +94,7 @@ export default function App() {
 		
 		<Stack.Screen
           name="ProfileScreen"
-          component={ProfileScreen}
+          component={Tabs}
 		      options={{headerShown:false}}
         />
 		

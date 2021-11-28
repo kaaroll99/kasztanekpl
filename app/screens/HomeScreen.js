@@ -6,7 +6,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 	
 export const user = [
-  { name: "Basia", uri: require('../assets/1.jpg'), location: "Warszawa", age: "34" },
+  { name: "Basia", uri: require('../assets/1.jpg'), location: "Warszawa", age: "27" },
   { name: "Kasia", uri: require('../assets/2.jpg'), location: "Kielce",age: "22"},
   { name: "Karolina", uri: require('../assets/3.jpg'), location: "Kraków",age: "22"},
   { name: "Daniel", uri: require('../assets/44.jpg'),

@@ -138,30 +138,7 @@ const ProfileScreen = ({ navigation }) => {
 				</View>
 			</ScrollView>
 		</View>
-	
-	{/*--------------------------------------FOOTER--------------------------------------
-		<View style={styles.footer}>
-			<View style={styles.footer_button}>
-			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
-				<FontAwesome name='home' size={35}/>
-			</TouchableOpacity>
-		</View>
 
-		<View style={styles.footer_button}>
-			<TouchableOpacity onPress={() => navigation.navigate('ChatScreen')}>
-				<FontAwesome name='comments' size={35}/>
-			</TouchableOpacity>	
-		</View>
-
-		<View style={styles.footer_button}>
-			<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
-				<FontAwesome name='user' size={35}
-				color={navigation.navigate === 'ChatScreen' ? nonColor : currentColor 
-				}/>
-			</TouchableOpacity>
-			</View>
-		</View>
-		*/}
 		<Modal isOpen={showModal} onClose={() => setShowModal(false)}>
 		<Modal.Content maxWidth="400px">
 			<Modal.CloseButton />
@@ -204,7 +181,7 @@ const ProfileScreen = ({ navigation }) => {
                 variant="ghost"
                 colorScheme="blueGray"
                 onPress={() => {
-                  setShowModal(false)
+                  setShowModal(false), setEditInfo(info)
                 }}
               >
                  Cancel
@@ -231,27 +208,19 @@ const styles = StyleSheet.create({
   container: {
 	flex: 1,
   },
-  footer:{
-	justifyContent:'center',
-	alignItems: 'center',
-	flex:3,
-	borderWidth:3,
-	borderColor: "blue",
-	flexDirection: "row",
-	backgroundColor:"gray",
-	justifyContent: "space-around",
-  },
   
   account:{
 	borderWidth:4,
 	borderColor:'gold',
-	height:"90%",
+	height:"95%",
+	marginTop:"10%",
+	
   },
   
   inAccount:{
 	borderWidth:4,
 	borderColor:'red',
-	height:"50%",
+	height:"40%",
 	alignItems: 'center',
 	borderBottomLeftRadius:100,
 	borderBottomRightRadius:100,

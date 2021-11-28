@@ -1,109 +1,146 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView} from 'react-native';
-import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon,Slide, Center, Heading,Button} from 'native-base';
+import React, { Component, useEffect, useState } from 'react';
+import { StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView, StatusBar} from 'react-native';
+import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon,Slide, Center, Heading,Button,FlatList,VStack, Spacer,Input,FormControl} from 'native-base';
 import {FontAwesome} from '@expo/vector-icons';
 import {user, userLove} from './HomeScreen';
 
-const currentColor = 'yellow'
-const nonColor = 'white'
-
+export const msg = [
+  { id: "1", name: "Basia", uri: require('../assets/1.jpg'), lastMsg: "Hey kochanie <3", time: "6:34PM"},
+  { id: "2", name: "Kasia", uri: require('../assets/2.jpg'),lastMsg: "Hey, What's up",time: "10:00AM"},
+  { id: "3", name: "Karolina", uri: require('../assets/3.jpg'),lastMsg: "I love u :*",time: "7:54AM"},
+  { id: "5", name: "Antonia", uri: require('../assets/5.jpg'),lastMsg: "Where are my eggs -_-",time: "8:22PM"},
+]
+export const Example = () => {
+  const [start,setStart] = useState(true);
+  const [identify,setIdentify] = useState('');
+  const localMsg = [
+	 { id: "1", name: "Basia", uri: require('../assets/1.jpg'), lastMsg: "Hey kochanie <3", time: "6:34PM"},
+  ]
+  if (start === true){
+  return (
+    <SafeAreaView>
+      <FlatList
+	    keyExtractor={(item) => item.id}
+        data={msg}
+        renderItem={({item})=>(
+			<View style={styles.list}>
+				<TouchableOpacity onPress={()=> {setStart(false),setIdentify(item.id)}}>
+					<View style={styles.avatarANDname}>
+						<Image 
+						source={item.uri}
+						style={{ width: 80, height: 80, borderRadius:50}}
+						/>
+						<View style={styles.name}>
+							<Text style={{fontSize:20, fontWeight:"bold"}}>{item.name}</Text>
+							<Text style={{fontSize:15}}>{item.lastMsg}</Text>
+						</View>
+							<View style={{borderWidth:3,}}>
+									<Text>{item.time}</Text>
+							</View>
+					</View>
+				</TouchableOpacity>
+			</View>
+			)
+		}
+      /> 
+    </SafeAreaView>
+  );
+  }else{
+	  return (
+		<SafeAreaView>
+			<View style={{borderWidth:3}}>
+				<Button onPress={()=> setStart(true)}>{identify}</Button>
+			</View>
+			<View style={styles.chatRoom}>
+				<FlatList
+					keyExtractor={(item) => item.id}
+					data={localMsg}
+					renderItem={({item})=>(
+						<View style={styles.list}>
+							<View>
+								<View style={{borderWidth:3,}}>
+									<Text>{item.id}</Text>
+								</View>
+							</View>
+						</View>
+						)
+					}
+				/> 
+			</View>
+			
+			<View style={styles.sendMsg}>
+				<Input type="Text"/>
+			</View>
+		</SafeAreaView>
+		);
+	}
+}
 
 const ChatScreen = ({ navigation }) => {
-	const [isOpen, setIsOpen] = React.useState(false);
-	const {isOpen2, onOpen, onClose } = useDisclose()
-  return (
-<NativeBaseProvider>
-    <SafeAreaView style={{ flex: 1 }}>
-		<View style={styles.main}>
-		
-		</View>
-
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	{/*--------------------------------------FOOTER--------------------------------------
-		<View style={styles.footer}>
-			<View style={styles.footer_button}>
-			<TouchableOpacity style={styles.button_login} onPress={() => navigation.navigate('HomeScreen')}>
-				<FontAwesome name='home' size={35}/>
-			</TouchableOpacity>
-		</View>
-
-		<View style={styles.footer_button}>
-			<TouchableOpacity onPress={() => navigation.navigate('ChatScreen')}>
-				<FontAwesome name='comments' size={35}
-				color={navigation.navigate === 'ChatScreen' ? nonColor :currentColor 
-				}/>
-			</TouchableOpacity>	
-		</View>
-
-		<View style={styles.footer_button}>
-			<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
-				<FontAwesome name='user' size={35}/>
-			</TouchableOpacity>
+	return (
+	<NativeBaseProvider>
+		<SafeAreaView style={{ flex: 1 }}>
+			<View style={styles.main}>
+				<View style={styles.showChat}> 
+					<Example/>
+				</View>
 			</View>
-		</View>*/}
-    </SafeAreaView>
-</NativeBaseProvider>
-  );
+		</SafeAreaView>
+	</NativeBaseProvider>
+	);
+		
 }
 
 const styles = StyleSheet.create({
   container: {
 	flex: 1,
-  },
-  
-  topka:{
-	flex:1,
-	borderWidth:3,
-	borderColor: "red",
-	position:'absolute',
-	width:'100%',
-	 
-  },
-
-  image:{
-	  flex:2,
-	  borderWidth:3,
-	  borderColor: "green",
-  } ,
-  
-  footer:{
-	height:80,
-	justifyContent:'flex-end',
-	alignItems: 'center',
-	flex:3,
-	borderWidth:3,
-	borderColor: "blue",
-	flexDirection: "row",
-	backgroundColor:"gray",
-	justifyContent: "space-around",
-  },
-  
-   kasztanek:{
-	width: 40,
-    height: 40,
-    resizeMode: 'stretch'
-   },
-      
+  },   
    main:{
 	borderWidth:3,
 	borderColor:"green",
-	height:"90%",
-	justifyContent:'center',
-	alignItems: 'center',
-	zIndex:1,
+	height:"95%",
+	marginTop:"10%",
    },
+   
+   list:{
+	   borderWidth:3,
+	   borderColor:'red',
+	   marginTop:6,
+   },
+   chat:{
+	    borderWidth:3,
+	   borderColor:'black',
+   },
+   showChat:{
+	   borderWidth:3,
+	   borderColor:'gold',
+   },
+   
+   avatarANDname:{
+		borderWidth:3,
+		borderColor:'blue',
+		flexDirection:"row",
+   },
+   
+   name:{
+		borderWidth:3,
+		borderColor:'aqua',
+		minWidth:230
+   },
+   
+   chatRoom:{
+		borderWidth:3,
+		borderColor:'red',
+		height:"86%",
+   },
+   
+   sendMsg:{
+		borderWidth:3,
+		borderColor:'blue',
+		height:"8%"
+   },
+   
 });
 
 export default ChatScreen;
