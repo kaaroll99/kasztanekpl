@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, SafeAreaView, TextInput, Image, TouchableOpacit
 import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon, FormControl,Stack,Input,WarningOutlineIcon,Divider,Radio,Select,CheckIcon,Button} from 'native-base';
 import { fontSize } from "styled-system";
 
+
 const RegisterScreen = ({ navigation }) => {
 	const [login, setLogin] = useState(false);
 	const [password, setPassword] = useState(false);
@@ -154,7 +155,7 @@ const RegisterScreen = ({ navigation }) => {
 						    </FormControl>
 					   </Stack>
 						<Button style={styles.registerButton} onPress={() => navigation.navigate('LoginScreen')} size="100">
-						<Text style={styles.text_register}>REGISTER</Text>
+							<Text style={styles.text_register}>REGISTER</Text>
 						</Button>
 			  </View>
 			</ScrollView>

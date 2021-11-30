@@ -15,6 +15,7 @@ export const Example = () => {
   const [identify,setIdentify] = useState('');
   const localMsg = [
 	 { id: "1", name: "Basia", uri: require('../assets/1.jpg'), lastMsg: "Hey kochanie <3", time: "6:34PM"},
+	 { id: "2", name: "Basia", uri: require('../assets/1.jpg'), lastMsg: "Hey kochanie <3", time: "6:34PM"},
   ]
   if (start === true){
   return (
@@ -66,10 +67,6 @@ export const Example = () => {
 						)
 					}
 				/> 
-			</View>
-			
-			<View style={styles.sendMsg}>
-				<Input type="Text"/>
 			</View>
 		</SafeAreaView>
 		);

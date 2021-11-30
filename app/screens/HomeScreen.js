@@ -65,27 +65,6 @@ const [exampleChangeUser, setExampleChangeUser] = useState(0);
 				</View>
 			</View>
 		</View>	
-
-		{/*</View>
-		 <View style={styles.footer}>
-			<View style={styles.footer_button}>
-			<TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
-				<MaterialCommunityIcons name='cards' size={30} color={currentColor}
-				/>
-			</TouchableOpacity>
-			</View>
-
-			<View style={styles.footer_button}>
-				<TouchableOpacity onPress={() => navigation.navigate('ChatScreen')}>
-					<FontAwesome name='comments' size={30} color={'gray'}/>
-				</TouchableOpacity>	
-			</View>
-
-			<View style={styles.footer_button}>
-				<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
-					<FontAwesome name='user' size={30} color={'gray'}/>
-				</TouchableOpacity>
-				</View>*/}
 		</View>		
 		
 		
