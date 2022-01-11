@@ -4,6 +4,7 @@ import { StyleSheet, Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FirstScreen from './screens/FirstScreen';
+import TakePhoto from './screens/TakePhoto';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -93,6 +94,12 @@ export default function App() {
         />
 		
 		<Stack.Screen
+          name="TakePhoto"
+          component={TakePhoto}
+			options={{headerShown:false}}
+        />
+		
+		<Stack.Screen
           name="ProfileScreen"
           component={Tabs}
 		      options={{headerShown:false}}
@@ -115,6 +122,7 @@ export default function App() {
           component={SettingsScreen}
           options={{ title: 'Settings', headerBackTitle:'Back'}}
         />
+		
       </Stack.Navigator>
     </NavigationContainer>
 </NativeBaseProvider>

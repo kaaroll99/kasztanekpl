@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
 
   registerButton: {
 	height: "10%",
- 	 width: "100%",
+ 	width: "100%",
   	backgroundColor: "#83BF28",
   	color: 'white',
   	alignItems: 'center',

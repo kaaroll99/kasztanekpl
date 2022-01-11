@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Text, SafeAreaView, TextInput, Image, TouchableOpacity } from 'react-native';
 import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon, FormControl,Stack,Input,WarningOutlineIcon,Divider,Radio,Select,CheckIcon,Button,Heading,Flex,Menu,Pressable,Path} from 'native-base';
 import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
 import {user} from './HomeScreen';
+import {tab} from './TakePhoto';
 
 
 
 const LoginScreen = ({ navigation }) => {
-  const { isOpen, onOpen, onClose } = useDisclose()
+  const { isOpen, onOpen, onClose } = useDisclose();
+  
+  
   return (
     <SafeAreaView style={{ flex: 1 }}>
 	  <View style={styles.container}>
@@ -65,6 +68,7 @@ const LoginScreen = ({ navigation }) => {
                 name="camera"
               />
             }
+			onPress={() => navigation.navigate('TakePhoto')}
           >
             Take a Photo
           </Actionsheet.Item>
