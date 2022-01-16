@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollVi
 import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon,Slide, Center, Heading,Button,FlatList,VStack, Spacer,Input,FormControl} from 'native-base';
 import {FontAwesome} from '@expo/vector-icons';
 import {user, userLove} from './HomeScreen';
+import {right} from "styled-system";
 
 export const msg = [
   { id: "1", name: "Basia", uri: require('../assets/1.jpg'), lastMsg: "Hey kochanie <3", time: "6:34PM"},
@@ -14,12 +15,13 @@ export const Example = () => {
   const [start,setStart] = useState(true);
   const [identify,setIdentify] = useState('');
   const localMsg = [
-	 { id: "1", name: "Basia", uri: require('../assets/1.jpg'), lastMsg: "Hey kochanie <3", time: "6:34PM"},
+	 { id: "1", name: "Basia", uri: require('../assets/1.jpg'), lastMsg: "vsgverherhbethvqtbjrjyrjyrjnryj", time: "6:34PM"},
 	 { id: "2", name: "Basia", uri: require('../assets/1.jpg'), lastMsg: "Hey kochanie <3", time: "6:34PM"},
   ]
   if (start === true){
   return (
-    <SafeAreaView>
+	  <SafeAreaView>
+		  <StatusBar barStyle="dark-content" />
       <FlatList
 	    keyExtractor={(item) => item.id}
         data={msg}
@@ -32,11 +34,11 @@ export const Example = () => {
 						style={{ width: 80, height: 80, borderRadius:50}}
 						/>
 						<View style={styles.name}>
-							<Text style={{fontSize:20, fontWeight:"bold"}}>{item.name}</Text>
-							<Text style={{fontSize:15}}>{item.lastMsg}</Text>
+							<Text style={{fontSize:20, fontWeight:"bold", color:'black'}}>{item.name}</Text>
+							<Text style={{fontSize:15, color:'black'}}>{item.lastMsg}</Text>
 						</View>
-							<View style={{borderWidth:3,}}>
-									<Text>{item.time}</Text>
+							<View style>
+									<Text style={styles.time_box}>{item.time}</Text>
 							</View>
 					</View>
 				</TouchableOpacity>
@@ -49,7 +51,8 @@ export const Example = () => {
   }else{
 	  return (
 		<SafeAreaView>
-			<View style={{borderWidth:3}}>
+			<StatusBar barStyle="dark-content" />
+			<View style={{paddingBottom:20}}>
 				<Button onPress={()=> setStart(true)}>{identify}</Button>
 			</View>
 			<View style={styles.chatRoom}>
@@ -57,10 +60,10 @@ export const Example = () => {
 					keyExtractor={(item) => item.id}
 					data={localMsg}
 					renderItem={({item})=>(
-						<View style={styles.list}>
+						<View style={styles.rec_msg_box}>
 							<View>
-								<View style={{borderWidth:3,}}>
-									<Text>{item.id}</Text>
+								<View>
+									<Text style={styles.rec_msg_text}>{item.lastMsg}</Text>
 								</View>
 							</View>
 						</View>
@@ -92,51 +95,92 @@ const ChatScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
 	flex: 1,
+
   },   
    main:{
-	borderWidth:3,
-	borderColor:"green",
 	height:"95%",
 	marginTop:"10%",
+	backgroundColor:'white',
    },
    
-   list:{
-	   borderWidth:3,
-	   borderColor:'red',
-	   marginTop:6,
-   },
+   rec_msg_box:{
+		backgroundColor:'#DDDDDD',
+		marginTop:7,
+		marginLeft:5,
+		maxWidth:'60%',
+		minWidth:'30%',
+		paddingHorizontal:20,
+		paddingVertical:10,
+		borderTopLeftRadius:10,
+		borderTopRightRadius:20,
+		borderBottomRightRadius:10,
+	},
+	send_msg_box:{
+		backgroundColor:'#3040B3FF',
+		marginTop:7,
+		marginLeft:5,
+		maxWidth:'60%',
+		minWidth:'30%',
+		left:'38%',
+		paddingHorizontal:20,
+		paddingVertical:10,
+		borderTopLeftRadius:20,
+		borderTopRightRadius:10,
+		borderBottomLeftRadius:10,
+	},
+	rec_msg_text:{
+		fontSize:16,
+	},
+	send_msg_text:{
+		fontSize:16,
+		color:'white',
+	},
+
    chat:{
-	    borderWidth:3,
+	    borderWidth:1,
 	   borderColor:'black',
    },
+	list:{
+		backgroundColor:'white',
+		marginTop:10,
+		borderTopWidth:1,
+		borderBottomWidth:1,
+		borderColor:'#DDDDDD',
+		paddingVertical:5,
+	},
    showChat:{
-	   borderWidth:3,
-	   borderColor:'gold',
    },
    
    avatarANDname:{
-		borderWidth:3,
-		borderColor:'blue',
 		flexDirection:"row",
+	   marginLeft:5,
    },
    
    name:{
-		borderWidth:3,
-		borderColor:'aqua',
-		minWidth:230
+		minWidth:230,
+	   color:'white',
+	   width:'75%',
+	   marginLeft:10,
    },
    
    chatRoom:{
-		borderWidth:3,
-		borderColor:'red',
-		height:"86%",
+		height:"93%",
    },
    
    sendMsg:{
 		borderWidth:3,
 		borderColor:'blue',
-		height:"8%"
+		height:"8%",
+	   backgroundColor:'red',
    },
+	time_box:{
+		position:"absolute",
+		flex:1,
+		right:'80%',
+		top:'78%',
+		color:'#3040B3FF',
+	},
+
    
 });
 

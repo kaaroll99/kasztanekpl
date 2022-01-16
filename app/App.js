@@ -49,16 +49,16 @@ function Tabs() {
       >
       <Tab.Screen name="Home" component={HomeScreen} options={{
 				tabBarLabel: 'Home',
-				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="cards" color={color} size={35} />),
+				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="cards" color={color} size={27} />),
 			}}
 		/>
       <Tab.Screen name="Chat" component={ChatScreen} options={{
 				tabBarLabel: 'Chat',
-				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="chat" color={color} size={35} />),
+				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="chat" color={color} size={27} />),
 			}}/>
       <Tab.Screen name="Profile" component={Draw} options={{
 				tabBarLabel: 'Profile',
-				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="account" color={color} size={35} />),
+				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="account" color={color} size={27} />),
 			}}/>
     </Tab.Navigator>
   );

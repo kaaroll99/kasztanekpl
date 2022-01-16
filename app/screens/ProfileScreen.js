@@ -86,9 +86,11 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
   <NativeBaseProvider>
-	  <StatusBar barStyle="light-content" />
+
 	  <SafeAreaView style={{ flex: 1,backgroundColor:'#3040B3FF' }}>
+
 		<View style={styles.account}>
+			<StatusBar barStyle="light-content" />
 			<View style={styles.inAccount}>
 				<Example/>
 				<Text style={{fontSize:25, paddingTop:10, color:'white'}}>
@@ -246,11 +248,11 @@ const styles = StyleSheet.create({
 	alignItems: 'center',
   },
 	opis:{
-	  fontSize:'18%',
+	  fontSize:18,
 	},
 	social:{
 	  paddingTop:'5%',
-		fontSize:'25%',
+		fontSize:20,
 
 	}
 });

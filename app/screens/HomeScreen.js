@@ -82,18 +82,9 @@ const styles = StyleSheet.create({
 
 
   image:{
-	marginTop:"9%",  
-	height:"96%",
+	marginTop:"10%",
+	height:"105%",
   } ,
-  
-  footer:{
-	height:"8%",
-	width:"100%",
-	alignItems: 'center',
-	paddingTop:"3%",
-	flexDirection: "row",
-	justifyContent: "space-around",
-  },
   
    kasztanek:{
 	width: 40,

@@ -520,7 +520,7 @@ const styles = StyleSheet.create({
 	information_text:{
 		textAlign:'center',
 		color:'white',
-		fontSize:'18%',
+		fontSize:18,
 	},
 
   options: {
@@ -532,14 +532,14 @@ const styles = StyleSheet.create({
 	paddingHorizontal:5,
 	  paddingVertical:15,
 	  backgroundColor:'white',
-	  fontSize:'16%',
+	  fontSize:16,
   },
 	clik_logout: {
 		marginVertical:1,
 		paddingHorizontal:5,
 		paddingVertical:15,
 		backgroundColor:'white',
-		fontSize:'16%',
+		fontSize:16,
 		color:'#A30B00',
 	},
 });
