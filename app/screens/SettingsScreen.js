@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon,Modal,FormControl,Input,Center,Button,TextArea,Divider,AlertDialog,Slider, Select} from 'native-base';
-import { StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
+import {StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView, StatusBar} from 'react-native';
 import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
 import LoginScreen from './LoginScreen';
 
@@ -22,17 +22,17 @@ const SettingsScreen = ({ navigation }) => {
 	const [service, setService] = useState("")
   return (
  <NativeBaseProvider>
- 
+	 <StatusBar barStyle="dark-content" />
  <ScrollView>
-   <SafeAreaView>
+   <SafeAreaView style={{ flex: 1,backgroundColor:'#3040B3FF' }}>
 		<View style={styles.container}>
 			<View style={styles.information}>
-				<Text>My Account</Text>
+				<Text style={styles.information_text}>My Account</Text>
 			</View>
 			<View style={styles.options}>
 				<TouchableOpacity onPress={()=> setShowModal1(true)}><Text style={styles.clik}>Name</Text></TouchableOpacity>
 				<TouchableOpacity onPress={()=> setShowModal2(true)}><Text style={styles.clik}>Surname</Text></TouchableOpacity>
-				<Text style={styles.clik}>User name</Text>
+				<Text style={styles.clik}>Username</Text>
 				<TouchableOpacity onPress={()=> setShowModal3(true)}><Text style={styles.clik}>Password</Text></TouchableOpacity>
 				<TouchableOpacity onPress={()=> setShowModal4(true)}><Text style={styles.clik}>Age</Text></TouchableOpacity>
 				<TouchableOpacity onPress={()=> setShowModal5(true)}><Text style={styles.clik}>Sex</Text></TouchableOpacity>
@@ -40,13 +40,13 @@ const SettingsScreen = ({ navigation }) => {
 				<TouchableOpacity onPress={()=> setShowModal7(true)}><Text style={styles.clik}>Location</Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
-				<Text>Other services</Text>
+				<Text style={styles.information_text}>Other services</Text>
 			</View>
 			<View style={styles.options}>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Advance</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Advanced</Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
-				<Text>Who can...</Text>
+				<Text style={styles.information_text}>Who can...</Text>
 			</View>
 			<View style={styles.options}>
 				<TouchableOpacity onPress={()=> setShowModal9(true)}><Text style={styles.clik}>Pokazuj tylko partnerki w wieku</Text></TouchableOpacity >
@@ -55,14 +55,14 @@ const SettingsScreen = ({ navigation }) => {
 				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Reklamy</Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
-				<Text>Private</Text>
+				<Text style={styles.information_text}>Private</Text>
 			</View>
 			<View style={styles.options}>
 				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Wyczyść zapis rozmowy</Text></TouchableOpacity>
 				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Uprawnienia</Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
-				<Text>Support</Text>
+				<Text style={styles.information_text}>Support</Text>
 			</View>
 			<View style={styles.options}>
 				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Potrzebuje pomocy</Text></TouchableOpacity>
@@ -73,15 +73,15 @@ const SettingsScreen = ({ navigation }) => {
 				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Polityka prywatności</Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
-				<Text>account activities </Text>
+				<Text style={styles.information_text}>Account activities </Text>
 			</View>
 			<View style={styles.options}>
-				<TouchableOpacity onPress={() => navigation.navigate('FirstScreen')}><Text style={styles.clik}>Wyloguj się </Text></TouchableOpacity>
+				<TouchableOpacity onPress={() => navigation.navigate('FirstScreen')}><Text style={styles.clik_logout}>Wyloguj się </Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
 			<Center>
-				<Text>Kasztanek.pl version 1.0</Text>
-				<Text>Stworzono w Kielce, PŚk by Swajda & Wykrota sp. z.o.o</Text>
+				<Text style={styles.information_text}>Kasztanek.pl version 1.0</Text>
+				<Text style={styles.information_text}>Stworzono w Kielce, PŚk by Swajda & Wykrota</Text>
 			</Center>
 			</View>
 		</View>
@@ -508,26 +508,40 @@ const SettingsScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-	borderWidth:3,
+
   },
   
   information: {
-	borderWidth:3,
-	borderColor:"red",
-	padding:10,
+	  backgroundColor:'#3040B3FF',
+	  //padding:10,
+	  paddingVertical:15,
+
   },
-  
+	information_text:{
+		textAlign:'center',
+		color:'white',
+		fontSize:'18%',
+	},
+
   options: {
-	borderWidth:3,
-	borderColor:"gold",
+	backgroundColor:'#AAAAAA'
   },
   
   clik: {
-	borderWidth:3,
-	borderColor:"green",
-	margin:3,
-	padding:5,
+	marginVertical:1,
+	paddingHorizontal:5,
+	  paddingVertical:15,
+	  backgroundColor:'white',
+	  fontSize:'16%',
   },
+	clik_logout: {
+		marginVertical:1,
+		paddingHorizontal:5,
+		paddingVertical:15,
+		backgroundColor:'white',
+		fontSize:'16%',
+		color:'#A30B00',
+	},
 });
 
 export default SettingsScreen;

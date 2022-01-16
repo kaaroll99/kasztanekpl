@@ -13,44 +13,46 @@ const LoginScreen = ({ navigation }) => {
   
   
   return (
+
     <SafeAreaView style={{ flex: 1 }}>
+		<StatusBar barStyle="dark-content" />
 	  <View style={styles.container}>
-			<View style={{borderWidth:3,borderColor:"red", flexDirection:"row"}}>
-				<View style={{borderWidth:3,borderColor:"blue", height:200,width:"50%", justifyContent:'center',alignItems: 'center',}}>
+			<View style={{flexDirection:"row"}}>
+				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"50%", justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
 					</TouchableOpacity>
 					
 				</View>
 				
-				<View style={{borderWidth:3,borderColor:"green", height:200,width:"50%",justifyContent:'center',alignItems: 'center',}}>
+				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"50%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
 					</TouchableOpacity>
 				</View>
 			</View>
 			
-			<View style={{borderWidth:3,borderColor:"red", flexDirection:"row"}}>
-				<View style={{borderWidth:3,borderColor:"blue", height:200,width:"34%",justifyContent:'center',alignItems: 'center',}}>
+			<View style={{flexDirection:"row"}}>
+				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"34%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
 					</TouchableOpacity>
 				</View>
 				
-				<View style={{borderWidth:3,borderColor:"green", height:200,width:"33%",justifyContent:'center',alignItems: 'center',}}>
+				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"33%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
 					</TouchableOpacity>
 				</View>
 				
-				<View style={{borderWidth:3,borderColor:"black", height:200,width:"33%",justifyContent:'center',alignItems: 'center',}}>
+				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"33%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
 					</TouchableOpacity>
 				</View>
 			</View>
 			
-			<View style={{borderWidth:3,borderColor:"black",height:300,justifyContent:'center',alignItems: 'center',}}>
+			<View style={{borderWidth:1,borderColor:"#3040B3FF",height:300,justifyContent:'center',alignItems: 'center',}}>
 				<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
 					</TouchableOpacity>
@@ -112,8 +114,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-	borderWidth:4,
-	borderColor:"gold",
 },
 
 });

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon,Modal,FormControl,Input,Center,Button,TextArea,Divider} from 'native-base';
 import { Path } from "react-native-svg";
-import { StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView, StatusBar } from 'react-native';
 import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
 import {user} from './HomeScreen';
 
@@ -14,7 +14,7 @@ export function Example() {
     <>
 		<HStack space={2}>
 			<TouchableOpacity onPress={onOpen}>
-				<Avatar size="2xl" source={user[3].uri} >Zdjecie</Avatar>
+				<Avatar size="2xl" source={user[3].uri} style={{borderWidth:2,borderColor:'white'}}>Zdjecie</Avatar>
 			</ TouchableOpacity>
 		</HStack>
       <Actionsheet isOpen={isOpen} onClose={onClose} size="full">
@@ -86,11 +86,12 @@ const ProfileScreen = ({ navigation }) => {
 
   return (
   <NativeBaseProvider>
-    <SafeAreaView style={{ flex: 1 }}>
+	  <StatusBar barStyle="light-content" />
+	  <SafeAreaView style={{ flex: 1,backgroundColor:'#3040B3FF' }}>
 		<View style={styles.account}>
 			<View style={styles.inAccount}>
 				<Example/>
-				<Text style={{fontSize:20, paddingTop:10,}}>
+				<Text style={{fontSize:25, paddingTop:10, color:'white'}}>
 					{user[3].name},
 					{user[3].age}
 				</Text>
@@ -98,20 +99,17 @@ const ProfileScreen = ({ navigation }) => {
 					<TouchableOpacity onPress={() => navigation.navigate('SettingsScreen')}>
 						<Text style={styles.buttonStyle}>
 							<MaterialIcons name='settings' size={35}/>
-							Settings
 						</Text>
 					</TouchableOpacity>
 					
 					<TouchableOpacity onPress={() => navigation.navigate('SelfieScreen')}>
 						<Text style={styles.buttonStyle}>
 							<MaterialIcons name='add-a-photo' size={35}/>
-							add-a-photo
 						</Text>
 					</TouchableOpacity>
 					<TouchableOpacity onPress={() => setShowModal(true)}>
 						<Text style={styles.buttonStyle}>
 							<MaterialIcons name='edit' size={35}/>
-							edit info
 						</Text>
 					</TouchableOpacity>
 				</View>
@@ -119,20 +117,20 @@ const ProfileScreen = ({ navigation }) => {
 			</View>
 			<ScrollView>
 				<View style={styles.inAccount2}>
-					<Text>
+					<Text style={styles.opis}>
 						{editInfo}
 					</Text>
 					
-					<Text>
-							<FontAwesome name='instagram' size={35}/> {insta}
+					<Text style={styles.social}>
+							<FontAwesome name='instagram' size={30}/> {insta}
 					</Text>
 					
-					<Text>
-							<FontAwesome name='facebook-official' size={35}/> {face}
+					<Text style={styles.social}>
+							<FontAwesome name='facebook-official' size={30}/> {face}
 					</Text>
 					
-					<Text>
-							<FontAwesome name='twitter' size={35}/> {twit}
+					<Text style={styles.social}>
+							<FontAwesome name='twitter' size={30}/> {twit}
 					</Text>
 					
 				</View>
@@ -210,32 +208,28 @@ const styles = StyleSheet.create({
   },
   
   account:{
-	borderWidth:4,
-	borderColor:'gold',
+	backgroundColor:'white',
 	height:"95%",
 	marginTop:"10%",
 	
   },
   
   inAccount:{
-	borderWidth:4,
-	borderColor:'red',
+	backgroundColor:'#3040B3FF',
 	height:"40%",
 	alignItems: 'center',
-	borderBottomLeftRadius:100,
-	borderBottomRightRadius:100,
+	borderBottomLeftRadius:40,
+	borderBottomRightRadius:40,
   }, 
   
   inAccount2:{
-	borderWidth:4,
-	borderColor:'green',
 	justifyContent:'center',
 	alignItems: 'center',
+	padding:20,
   },
   
    buttony:{
-    borderWidth:4,
-	borderColor:'lime',
+	paddingTop:30,
 	flexDirection:"row",
 	padding:10,
 	width:"100%",
@@ -244,14 +238,21 @@ const styles = StyleSheet.create({
   },
   
   buttonStyle:{
-    borderWidth:4,
-	borderColor:'blue',
-	backgroundColor:'grey',
-	borderRadius:200,
-	padding:10,
+	backgroundColor:'white',
+	borderRadius:10,
+	color:'#3040B3FF',
+	padding:15,
 	justifyContent:'center',
 	alignItems: 'center',
   },
+	opis:{
+	  fontSize:'18%',
+	},
+	social:{
+	  paddingTop:'5%',
+		fontSize:'25%',
+
+	}
 });
 
 export default ProfileScreen;

@@ -12,13 +12,9 @@ export const user = [
   { name: "Daniel", uri: require('../assets/44.jpg'),
 					uri2: require('../assets/41.jpg'),
 					uri3: require('../assets/42.jpg'),
-					uri4: require('../assets/43.jpg'),
-					uri4: require('../assets/4.jpg'),
 					location: "Górno",age: "21"},
   { name: "Antonia", uri: require('../assets/5.jpg'), location: "Sinsinati",age: "18"},
 ]
-
-export const userLove = []
 
 const currentColor = '#3040B3'
 const nonColor = 'gray'
@@ -27,6 +23,7 @@ const HomeScreen = ({ navigation }) => {
 const [exampleChangeUser, setExampleChangeUser] = useState(0);
   return (
     <View style={styles.container}>
+		<StatusBar barStyle="dark-content" />
 		<View style={styles.container2}>
 		<StatusBar style="auto" />
 		<View style={styles.inImageTop}>
