@@ -15,7 +15,6 @@ const RegisterScreen = ({ navigation }) => {
 	const [location, setLocation] = useState(false);
 	const [sex, setSex] = useState(false);
   return (
-    <SafeAreaView style={{ flex: 1 }}>
 			<ScrollView>
 			  <View style={styles.container}>
 			  
@@ -23,7 +22,7 @@ const RegisterScreen = ({ navigation }) => {
 						<Stack mx="4">
 						
 						  <FormControl.Label>Login</FormControl.Label>
-								<Input type="text"  placeholder="Login" onChangeText={(login) => setLogin(login)}/>
+								<Input style={styles.input} type="text"  placeholder="Login" onChangeText={(login) => setLogin(login)}/>
 								
 						  <FormControl.HelperText>
 								Must be atleast 6 characters.
@@ -34,7 +33,7 @@ const RegisterScreen = ({ navigation }) => {
 						  </FormControl.ErrorMessage>
 						
 						  <FormControl.Label>Password</FormControl.Label>
-								<Input type="password"  placeholder="password" onChangeText={(password) => setPassword(password)}/>
+								<Input style={styles.input} type="password"  placeholder="password" onChangeText={(password) => setPassword(password)}/>
 								
 						  <FormControl.HelperText>
 								Must be atleast 6 characters.
@@ -45,15 +44,15 @@ const RegisterScreen = ({ navigation }) => {
 						  </FormControl.ErrorMessage>
 						  
 						</Stack>
-						<Divider style={{marginTop:15, width:"80%",}}/>{/*Ta ledwo widoczna szara linia pod ostatnim must be...*/}
+						<Divider style={{marginVertical:15, width:"80%"}}/>{/*Ta ledwo widoczna szara linia pod ostatnim must be...*/}
 					  </FormControl>
 					  <Stack mx="4">
 						  <FormControl isRequired>
 								 <FormControl.Label>Name</FormControl.Label>
-									<Input type="text"  placeholder="Name" onChangeText={(name) => setName(name)}/>
+									<Input style={styles.input} type="text"  placeholder="Name" onChangeText={(name) => setName(name)}/>
 								
 								<FormControl.Label>Surname</FormControl.Label>
-									<Input type="text"  placeholder="Surname" onChangeText={(surname) => setSurname(surname)}/>
+									<Input style={styles.input} type="text"  placeholder="Surname" onChangeText={(surname) => setSurname(surname)}/>
 							
 						    <FormControl.Label>Sex</FormControl.Label>
 								<Radio.Group defaultValue="1" name="sexGroup" onValueChange={(sex) => setSex(sex)}>
@@ -62,6 +61,7 @@ const RegisterScreen = ({ navigation }) => {
 								</Radio.Group>
 							<FormControl.Label>Age</FormControl.Label>
 							 <Select
+								 style={styles.input}
 								selectedValue={age}
 								minWidth="200"
 								accessibilityLabel="Age"
@@ -107,7 +107,7 @@ const RegisterScreen = ({ navigation }) => {
 
 							  
 							  <FormControl.Label>Country</FormControl.Label>
-							  <Select
+							  <Select  style={styles.input}
 								selectedValue={country}
 								minWidth="200"
 								placeholder="Choose your Country"
@@ -151,7 +151,7 @@ const RegisterScreen = ({ navigation }) => {
 							  </Select>
 							  
 							  <FormControl.Label>Location</FormControl.Label>
-									<Input type="text"  placeholder="Location" onChangeText={(location) => setLocation(location)}/>
+									<Input style={styles.input} type="text"  placeholder="Location" onChangeText={(location) => setLocation(location)}/>
 						    </FormControl>
 					   </Stack>
 						<Button style={styles.registerButton} onPress={() => navigation.navigate('LoginScreen')} size="100">
@@ -159,13 +159,13 @@ const RegisterScreen = ({ navigation }) => {
 						</Button>
 			  </View>
 			</ScrollView>
-    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+	paddingTop: 10,
   },
 
   registerButton: {
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   	color: 'white',
   	alignItems: 'center',
 	justifyContent: 'center',
-	marginTop:40,
+	marginTop:20,
 	marginBottom:45,
   	borderTopLeftRadius: 20,
   	borderTopRightRadius:20,
@@ -186,5 +186,9 @@ const styles = StyleSheet.create({
 	fontSize: 25,
 	fontWeight: 'bold',
   },
+
+	input:{
+		height:50,
+	},
 });
 export default RegisterScreen;

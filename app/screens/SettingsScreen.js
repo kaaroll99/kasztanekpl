@@ -49,34 +49,33 @@ const SettingsScreen = ({ navigation }) => {
 				<Text style={styles.information_text}>Who can...</Text>
 			</View>
 			<View style={styles.options}>
-				<TouchableOpacity onPress={()=> setShowModal9(true)}><Text style={styles.clik}>Pokazuj tylko partnerki w wieku</Text></TouchableOpacity >
-				<TouchableOpacity onPress={()=> setShowModal10(true)}><Text style={styles.clik}>Kto może mnie oglądać</Text></TouchableOpacity>
-				<TouchableOpacity onPress={()=> setShowModal10(true)}><Text style={styles.clik}>kto może widzieć moją lokalizacje</Text></TouchableOpacity>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Reklamy</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal9(true)}><Text style={styles.clik}>Show only partners aged</Text></TouchableOpacity >
+				<TouchableOpacity onPress={()=> setShowModal10(true)}><Text style={styles.clik}>See my profile</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal10(true)}><Text style={styles.clik}>See my location</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Ads</Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
 				<Text style={styles.information_text}>Private</Text>
 			</View>
 			<View style={styles.options}>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Wyczyść zapis rozmowy</Text></TouchableOpacity>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Uprawnienia</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Clear messages</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Permissions</Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
 				<Text style={styles.information_text}>Support</Text>
 			</View>
 			<View style={styles.options}>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Potrzebuje pomocy</Text></TouchableOpacity>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Chce zgłosić naruszenie bezpieczeństwa</Text></TouchableOpacity>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Mam pytanie</Text></TouchableOpacity>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Centrum obsługi</Text></TouchableOpacity>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Regulamin</Text></TouchableOpacity>
-				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Polityka prywatności</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Report security breach</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Ask a question</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Help center</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Rules</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> setShowModal8(true)}><Text style={styles.clik}>Privacy policy</Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
 				<Text style={styles.information_text}>Account activities </Text>
 			</View>
 			<View style={styles.options}>
-				<TouchableOpacity onPress={() => navigation.navigate('FirstScreen')}><Text style={styles.clik_logout}>Wyloguj się </Text></TouchableOpacity>
+				<TouchableOpacity onPress={() => navigation.navigate('FirstScreen')}><Text style={styles.clik_logout}>Log out </Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
 			<Center>
@@ -181,7 +180,7 @@ const SettingsScreen = ({ navigation }) => {
 				</FormControl>
 				
 				<FormControl>
-				  <FormControl.Label>Commit Password </FormControl.Label>
+				  <FormControl.Label>Change Password </FormControl.Label>
 					<Input />
 				</FormControl>
 			  </Modal.Body>
@@ -473,9 +472,9 @@ const SettingsScreen = ({ navigation }) => {
 					mt={1}
 					onValueChange={(itemValue) => setService(itemValue)}
 				 >
-					<Select.Item label="Wszyscy" value="ux" />
-					<Select.Item label="Polubione Osoby" value="web" />
-					<Select.Item label="Nikt" value="cross" />
+					<Select.Item label="All" value="ux" />
+					<Select.Item label="Friendswy" value="web" />
+					<Select.Item label="None" value="cross" />
 				 </Select>
 			  </Modal.Body>
 			  <Modal.Footer>

@@ -49,7 +49,7 @@ const [exampleChangeUser, setExampleChangeUser] = useState(0);
 					<TouchableOpacity onPress={() =>
 						exampleChangeUser === 4 ? setExampleChangeUser(0) : setExampleChangeUser(exampleChangeUser+1)
 					}>
-						<FontAwesome name='close' size={60} color={"red"}/>
+						<FontAwesome name='close' size={60} color={"#FE4E4E"}/>
 					</TouchableOpacity>
 				</View>
 				
@@ -57,7 +57,7 @@ const [exampleChangeUser, setExampleChangeUser] = useState(0);
 					<TouchableOpacity onPress={() => 
 						exampleChangeUser === 4 ? setExampleChangeUser(0) : setExampleChangeUser(exampleChangeUser+1)
 					}>
-						<FontAwesome name='heart' size={50} color={"lime"}/>
+						<FontAwesome name='heart' size={50} color={"#A6FF4D"}/>
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -83,7 +83,12 @@ const styles = StyleSheet.create({
 
   image:{
 	marginTop:"10%",
-	height:"105%",
+	height:"100%",
+	  shadowColor: "#000",
+	  shadowOffset: {width: 0, height: 4,},
+	  shadowOpacity: 0.8,
+	  shadowRadius: 7,
+	  elevation: 10,
   } ,
   
    kasztanek:{
@@ -103,12 +108,22 @@ const styles = StyleSheet.create({
 	alignItems: 'center',
     justifyContent: 'space-around',
 	height:"100%",
+	   shadowColor: "#000",
+	   shadowOffset: {width: 4, height: 4,},
+	   shadowOpacity: 1,
+	   shadowRadius: 15,
+	   elevation: 10,
    },
    
    yeesButton:{
 	alignItems: 'center',
     justifyContent: 'space-around',
 	height:"100%",
+	   shadowColor: "#000",
+	   shadowOffset: {width: 4, height: 4,},
+	   shadowOpacity: 1,
+	   shadowRadius: 15,
+	   elevation: 10,
    },
    
    text_name:{
