@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Text, SafeAreaView, TextInput, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon, FormControl,Stack,Input,WarningOutlineIcon,Divider,Radio,Select,CheckIcon,Button} from 'native-base';
 import { fontSize } from "styled-system";
-
+import {AdresURL} from '../App.js';
+import axios from 'axios';
 
 const RegisterScreen = ({ navigation }) => {
 	const [login, setLogin] = useState(false);
@@ -14,6 +15,32 @@ const RegisterScreen = ({ navigation }) => {
 	const [country, setCountry] = useState(false);
 	const [location, setLocation] = useState(false);
 	const [sex, setSex] = useState(false);
+	
+		const saveData = () => {
+				try {
+					 axios({
+						method: 'post',
+						url: AdresURL+'/Account',
+						data: {
+							user: login,
+							pass: password,
+							personalData:{
+								name: name,
+								surname: surname,
+								age: age,
+								country: country,
+								location: location,
+								sex: sex
+							}
+					  }
+					}).then(function (response) {console.log(response.data)});
+				} catch(error) {
+					console.error(error)
+				}
+			
+		}
+	
+	
   return (
 			<ScrollView>
 			  <View style={styles.container}>
@@ -154,9 +181,9 @@ const RegisterScreen = ({ navigation }) => {
 									<Input style={styles.input} type="text"  placeholder="Location" onChangeText={(location) => setLocation(location)}/>
 						    </FormControl>
 					   </Stack>
-						<Button style={styles.registerButton} onPress={() => navigation.navigate('LoginScreen')} size="100">
+						<TouchableOpacity style={styles.registerButton} onPress={saveData}>
 							<Text style={styles.text_register}>REGISTER</Text>
-						</Button>
+						</TouchableOpacity>
 			  </View>
 			</ScrollView>
   );

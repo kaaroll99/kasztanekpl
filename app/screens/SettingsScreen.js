@@ -3,7 +3,8 @@ import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Ico
 import {StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView, StatusBar} from 'react-native';
 import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
 import LoginScreen from './LoginScreen';
-
+import axios from 'axios';
+import {AdresURL} from '../App.js';
 
 const SettingsScreen = ({ navigation }) => {
 	const [showModal1, setShowModal1] = useState(false)
@@ -20,6 +21,17 @@ const SettingsScreen = ({ navigation }) => {
 	const [onChangeValue, setOnChangeValue] = useState(18)
 	const [onChangeValue2, setOnChangeValue2] = useState(18)
 	const [service, setService] = useState("")
+	const [flaga,setFlaga] = useState(false)
+	
+	const logOut = async () =>{
+		try {
+			const response = await axios.delete(AdresURL+'/Session/2').then((response) => {console.log(response.data)});
+			return true
+		} catch(error) {
+			console.error(error)
+		}
+	}
+	
   return (
  <NativeBaseProvider>
 	 <StatusBar barStyle="dark-content" />
@@ -75,7 +87,9 @@ const SettingsScreen = ({ navigation }) => {
 				<Text style={styles.information_text}>Account activities </Text>
 			</View>
 			<View style={styles.options}>
-				<TouchableOpacity onPress={() => navigation.navigate('FirstScreen')}><Text style={styles.clik_logout}>Log out </Text></TouchableOpacity>
+				<TouchableOpacity onPress={() => {logOut(); navigation.popToTop();}}>
+					<Text style={styles.clik_logout}>Log out </Text>
+				</TouchableOpacity>
 			</View>
 			<View style={styles.information}>
 			<Center>

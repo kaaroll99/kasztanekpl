@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Text, SafeAreaView, TextInput, Image, TouchableOpacity,Alert  } from 'react-native';
 import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon, FormControl,Stack,Input,WarningOutlineIcon,Divider,Radio,Select,CheckIcon,Button,CloseIcon,VStack,IconButton} from 'native-base';
+import axios from 'axios';
+import {AdresURL} from '../App.js';
 
-export function validAuthorization(log,pass){
-	if ((log == 'user' || log == 'User') && (pass == 'password' || pass == 'Password')){
-		return true
-	}
-	else{
-		return false
-	}		
-}
 
 const showAlert = () =>
   Alert.alert(
@@ -38,6 +32,47 @@ const LoginScreen = ({ navigation }) => {
 	const [show, setShow] = React.useState(false);
 	const [screen, setScreen] = React.useState(false);
     const handleClick = () => setShow(!show);
+	const [user,setUser] = useState([]);
+	const [id,setId] = useState(false);
+	
+	
+	function validAuthorization(log,pass){
+		
+		var i = 0;
+		while(i != user.length){
+			if ((log == user[i].user) && (pass == user[i].pass)){
+				console.log(user[i].user);
+					try {
+					 axios({
+						method: 'post',
+						url: AdresURL+'/Session',
+						data: {
+							activeUser: user[i].id - 1,
+						}
+					}).then(function (response) {console.log(response.data)});
+					} catch(error) {
+						console.error(error)
+					}
+				console.log(user[i].id)
+				return true
+			}else{
+				console.log("i = ",i);
+				i++;
+			}
+		}
+	}
+	
+	const getData = async () => {
+    try {
+      const response = await axios.get(AdresURL+'/Account').then((response) => {setUser(response.data)});
+    } catch(error) {
+      console.error(error)
+	}
+  }
+	
+	useEffect(() => {
+		getData();
+	}, [])
   return (
     
 	  <View style={styles.container}>
