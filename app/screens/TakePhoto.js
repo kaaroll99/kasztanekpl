@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, TouchableOpacity, StatusBar, Image} from 'react-
 import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
 import { Camera } from 'expo-camera';
 
-const TakePhoto = ({ navigation, img }) => {
+const TakePhoto = ({ navigation, sendPhoto, resetFlag }) => {
 	const [hasPermission, setHasPermission] = useState(null);
 	const [type, setType] = useState(Camera.Constants.Type.back);
 	const [image, setImage]= useState(null);
@@ -19,8 +19,8 @@ const TakePhoto = ({ navigation, img }) => {
 		const _takePhoto = async () => {
 			const photo = await ref.current.takePictureAsync()
 			setImage(photo.uri)
-			tab.push(photo.uri)
-			console.debug(photo)
+			sendPhoto(photo.uri)
+			resetFlag(0)
 		}
 
 	  if (hasPermission === null) {

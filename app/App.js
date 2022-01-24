@@ -18,7 +18,7 @@ import {createDrawerNavigator,DrawerContentScrollView,DrawerItemList,DrawerItem,
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export const AdresURL =   'http://448c-213-77-117-139.ngrok.io';
+export const AdresURL =    'http://ef73-213-77-117-139.ngrok.io';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();

@@ -6,12 +6,27 @@ import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
 import {user} from './HomeScreen';
 import TakePhoto from './TakePhoto';
 
-const LoginScreen = ({ navigation }) => {
+const SelfieScreen = ({ navigation }) => {
   const { isOpen, onOpen, onClose } = useDisclose();
-  const [picture, setPicture] = useState('');
+  const [picture, setPicture] = useState(false);
+  const [flaga, setFlaga] = useState(0);
+  const [array,setArray] = useState([]);
   
- 
+  const takePhoto = (variable)=>{
+	  setArray(oldArray => [...oldArray,variable] );
+  }
   
+  const reset = (variable)=>{
+	  setFlaga(variable)
+  }
+  
+  const show = (wd,hg,id) =>{
+	return(<Image style={{height:hg,width:wd}} source={{uri:array[id]}}/>)
+	  
+  }
+  
+  console.log(array)
+  if(flaga === 0){
   return (
 
     <SafeAreaView style={{ flex: 1 }}>
@@ -21,6 +36,7 @@ const LoginScreen = ({ navigation }) => {
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"50%", justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
+						{show(200,200,0)}
 					</TouchableOpacity>
 					
 				</View>
@@ -28,6 +44,7 @@ const LoginScreen = ({ navigation }) => {
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"50%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
+						{show(200,200,1)}
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -36,18 +53,21 @@ const LoginScreen = ({ navigation }) => {
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"34%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
+						{show(200,200,2)}
 					</TouchableOpacity>
 				</View>
 				
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"33%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
+						{show(200,200,3)}
 					</TouchableOpacity>
 				</View>
 				
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"33%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
+						{show(200,200,4)}
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -55,6 +75,7 @@ const LoginScreen = ({ navigation }) => {
 			<View style={{borderWidth:1,borderColor:"#3040B3FF",height:300,justifyContent:'center',alignItems: 'center',}}>
 				<TouchableOpacity onPress={onOpen}>
 						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
+						{show(200,200,5)}
 					</TouchableOpacity>
 			</View>
 	  </View>
@@ -70,7 +91,7 @@ const LoginScreen = ({ navigation }) => {
                 name="camera"
               />
             }
-			onPress={() => navigation.navigate('TakePhoto')}
+			onPress={() => {setFlaga(3)}}
           >
             Take a Photo
           </Actionsheet.Item>
@@ -109,6 +130,12 @@ const LoginScreen = ({ navigation }) => {
     </SafeAreaView>
 
   );
+  }else if(flaga === 3){
+	  return(
+		<TakePhoto sendPhoto = {takePhoto} resetFlag = {reset} />
+			
+	  );
+  }
 }
 const styles = StyleSheet.create({
   container: {
@@ -117,4 +144,4 @@ const styles = StyleSheet.create({
 },
 
 });
-export default LoginScreen;
+export default SelfieScreen;
