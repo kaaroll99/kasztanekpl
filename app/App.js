@@ -18,7 +18,7 @@ import {createDrawerNavigator,DrawerContentScrollView,DrawerItemList,DrawerItem,
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export const AdresURL =    'http://ef73-213-77-117-139.ngrok.io';
+export const AdresURL =    'http://63de-78-88-226-86.ngrok.io';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -70,7 +70,7 @@ export default function App() {
   return (
 <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FirstScreen">
+      <Stack.Navigator initialRouteName="ChatScreen">
         <Stack.Screen
           name="FirstScreen"
           component={FirstScreen}

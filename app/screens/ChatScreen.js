@@ -1,8 +1,8 @@
 import React, { Component, useEffect, useState } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView, StatusBar} from 'react-native';
-import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon,Slide, Center, Heading,Button,FlatList,VStack, Spacer,Input,FormControl,Spinner} from 'native-base';
+import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon,Slide,Button, Center, Heading,FlatList,VStack, Spacer,Input,FormControl,Spinner} from 'native-base';
 import { List } from 'react-native-paper';
-import {FontAwesome} from '@expo/vector-icons';
+import {FontAwesome, MaterialIcons} from '@expo/vector-icons';
 import {user, userLove} from './HomeScreen';
 import {right} from "styled-system";
 import {AdresURL} from '../App.js';
@@ -118,6 +118,16 @@ const getData = async () => {
 							<Text style={styles.send_msg_box}>{msg[0].messageTo[0].message}</Text>
 							<Text style={styles.rec_msg_box}>{msg[0].messageFrom[1].message}</Text>
 						</View>
+					<View style={styles.sendmsg}>
+						<Input style={styles.msgfield}
+
+							   InputRightElement={
+								   <Button size="xs" m="1">
+									   <MaterialIcons name='send' size={25}/>
+								   </Button>
+							   }
+						/>
+					</View>
 				</View>
 			</SafeAreaView>
 			);
@@ -126,7 +136,7 @@ const getData = async () => {
 			<SafeAreaView>
 				<StatusBar barStyle="dark-content" />
 				<View style={{paddingBottom:20}}>
-					<Button onPress={()=> setStart(true)} >{msg[1].from}</Button>
+					<Button style={styles.button} onPress={()=> setStart(true)} >{msg[1].from}</Button>
 				</View>
 				<View style={styles.chatRoom}>
 					{/*<FlatList
@@ -151,6 +161,16 @@ const getData = async () => {
 							<Text style={styles.send_msg_box}>{msg[1].messageTo[2].message}</Text>
 
 						</View>
+					<View style={styles.sendmsg}>
+						<Input style={styles.msgfield}
+
+							   InputRightElement={
+								   <Button size="xs" m="1">
+									   <MaterialIcons name='send' size={25}/>
+								   </Button>
+							   }
+						/>
+					</View>
 				</View>
 			</SafeAreaView>
 			);
@@ -272,6 +292,17 @@ const styles = StyleSheet.create({
 	  	backgroundColor:'#3040B3FF',
 		borderRadius:0,
 	},
+	sendmsg:{
+		position:'absolute',
+		bottom:'5%',
+		left:0,
+		width:'100%',
+		height:'10%',
+	},
+	msgfield:{
+	  	width:'100%',
+		height:'100%',
+	}
    
 });
 

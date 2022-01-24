@@ -35,7 +35,7 @@ const SelfieScreen = ({ navigation }) => {
 			<View style={{flexDirection:"row"}}>
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"50%", justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
-						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
+						<Text style={styles.addbutton2}><MaterialIcons name='add-a-photo' size={35}/></Text>
 						{show(200,200,0)}
 					</TouchableOpacity>
 					
@@ -43,7 +43,7 @@ const SelfieScreen = ({ navigation }) => {
 				
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"50%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
-						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
+						<Text style={styles.addbutton2}><MaterialIcons name='add-a-photo' size={35}/></Text>
 						{show(200,200,1)}
 					</TouchableOpacity>
 				</View>
@@ -52,30 +52,30 @@ const SelfieScreen = ({ navigation }) => {
 			<View style={{flexDirection:"row"}}>
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"34%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
-						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
+						<Text style={styles.addbutton3}><MaterialIcons name='add-a-photo' size={35}/></Text>
 						{show(200,200,2)}
 					</TouchableOpacity>
 				</View>
 				
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"33%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
-						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
-						{show(200,200,3)}
+						<Text style={styles.addbutton3}><MaterialIcons name='add-a-photo' size={35}/></Text>
+						{show(133,200,3)}
 					</TouchableOpacity>
 				</View>
 				
 				<View style={{borderWidth:1,borderColor:"#3040B3FF", height:200,width:"33%",justifyContent:'center',alignItems: 'center',}}>
 					<TouchableOpacity onPress={onOpen}>
-						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
-						{show(200,200,4)}
+						<Text style={styles.addbutton3}><MaterialIcons name='add-a-photo' size={35}/></Text>
+						{show(133,200,4)}
 					</TouchableOpacity>
 				</View>
 			</View>
 			
 			<View style={{borderWidth:1,borderColor:"#3040B3FF",height:300,justifyContent:'center',alignItems: 'center',}}>
 				<TouchableOpacity onPress={onOpen}>
-						<Text><MaterialIcons name='add-a-photo' size={35}/></Text>
-						{show(200,200,5)}
+						<Text style={styles.addbutton1}><MaterialIcons name='add-a-photo' size={35}/></Text>
+						{show(134,200,5)}
 					</TouchableOpacity>
 			</View>
 	  </View>
@@ -142,6 +142,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
 },
+	addbutton3:{
+		position:'absolute',
+		marginTop:'55%',
+		marginLeft:'65%',
+		color:'#8c8c8c',
+	},
+	addbutton2:{
+	  	position:'absolute',
+		marginTop:'42%',
+		marginLeft:'43%',
+		color:'#8c8c8c',
+	},
+	addbutton1:{
+		position:'absolute',
+		marginLeft:'47%',
+		bottom:'50%',
+		color:'#8c8c8c',
+	},
 
 });
 export default SelfieScreen;

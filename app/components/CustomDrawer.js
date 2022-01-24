@@ -27,19 +27,17 @@ const CustomDrawer = props => {
 if(flaga == true){
   return (
     <View style={{flex: 1}} >
-        <DrawerContentScrollView{...props}contentContainerStyle={{backgroundImage: 'White'}}>
-			<ImageBackground source={require('../assets/bg.jpg')} style={{height:2000}}>
-				 <Text style={styles.field}>Name: {girl[exampleChangeUser].name}</Text>
+        <DrawerContentScrollView{...props}contentContainerStyle={{backgroundColor: '#3040B3FF',height:'100%'}}>
+				 <Text style={styles.fields}>Name: {girl[exampleChangeUser].name}</Text>
 				 <Text style={styles.field}>Surname: {girl[exampleChangeUser].surname}</Text>
 				 <Text style={styles.field}>Age: {girl[exampleChangeUser].age}</Text>
 				 <Text style={styles.field}>Sex: {girl[exampleChangeUser].sex}</Text>
 				 <Text style={styles.field}>Country: {girl[exampleChangeUser].country}</Text>
 				 <Text style={styles.field}>Location: {girl[exampleChangeUser].location}</Text>
-				 <Text style={styles.field}><FontAwesome name='facebook-official' size={15}/>  {girl[exampleChangeUser].facebook}</Text>
+				 <Text style={styles.fields}><FontAwesome name='facebook-official' size={15}/>  {girl[exampleChangeUser].facebook}</Text>
 				 <Text style={styles.field}><FontAwesome name='twitter' size={15}/>  {girl[exampleChangeUser].twitter}</Text>
 				 <Text style={styles.field}><FontAwesome name='instagram' size={15}/>  {girl[exampleChangeUser].instagram}</Text>
-				 <Text style={styles.field}>Description: {girl[exampleChangeUser].description}</Text>
-			</ImageBackground>
+				 <Text style={styles.fields}>{girl[exampleChangeUser].description}</Text>
         </DrawerContentScrollView>		
     </View>
 	
@@ -58,10 +56,18 @@ const styles = StyleSheet.create({
   },
 
 	field:{
-	  	paddingTop:'5%',
+	  	paddingTop:'7%',
 		fontSize:15,
+		paddingLeft:'7%',
 		color:'white',
-		paddingLeft:'3%',
 	},
+
+	fields:{
+		paddingTop:'15%',
+		fontSize:15,
+		paddingLeft:'7%',
+		color:'white',
+	},
+
 });
 export default CustomDrawer;

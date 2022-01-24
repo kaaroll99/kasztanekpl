@@ -145,7 +145,7 @@ const ProfileScreen = ({ navigation }) => {
 				setTwit(profile[active[1].activeUser].personalData.twitter)
 				setFlaga(true)
 			}
-	}, [0])
+	}, [])
 	console.log(profile)
 	console.log(active)
 	
