@@ -55,6 +55,7 @@ const LoginScreen = ({ navigation }) => {
 						console.error(error)
 					}
 				console.log(user[i].id)
+				console.log(log)
 				return true
 			}else{
 				console.log("i = ",i);

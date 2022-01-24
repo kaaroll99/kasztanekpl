@@ -41,7 +41,7 @@ const getData = async () => {
 	
 	useEffect(() => {
 		getData();
-	}, [])
+	}, [0])
 console.log(flaga)
 
 	if(flaga == true){

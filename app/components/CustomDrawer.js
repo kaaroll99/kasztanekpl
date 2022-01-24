@@ -5,6 +5,7 @@ import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Ico
 import {AdresURL} from '../App.js';
 import Loader from '../components/Loader.js';
 import axios from 'axios';
+import {FontAwesome} from "@expo/vector-icons";
 
 const CustomDrawer = props => {
 	const [girl,setGirl] = useState([]);
@@ -28,16 +29,16 @@ if(flaga == true){
     <View style={{flex: 1}} >
         <DrawerContentScrollView{...props}contentContainerStyle={{backgroundImage: 'White'}}>
 			<ImageBackground source={require('../assets/bg.jpg')} style={{height:2000}}>
-				 <Text>{girl[exampleChangeUser].name}</Text>
-				 <Text>{girl[exampleChangeUser].surname}</Text>
-				 <Text>{girl[exampleChangeUser].age}</Text>
-				 <Text>{girl[exampleChangeUser].sex}</Text>
-				 <Text>{girl[exampleChangeUser].country}</Text>
-				 <Text>{girl[exampleChangeUser].location}</Text>
-				 <Text>{girl[exampleChangeUser].facebook}</Text>
-				 <Text>{girl[exampleChangeUser].twitter}</Text>
-				 <Text>{girl[exampleChangeUser].instagram}</Text>
-				 <Text>{girl[exampleChangeUser].description}</Text>
+				 <Text style={styles.field}>Name: {girl[exampleChangeUser].name}</Text>
+				 <Text style={styles.field}>Surname: {girl[exampleChangeUser].surname}</Text>
+				 <Text style={styles.field}>Age: {girl[exampleChangeUser].age}</Text>
+				 <Text style={styles.field}>Sex: {girl[exampleChangeUser].sex}</Text>
+				 <Text style={styles.field}>Country: {girl[exampleChangeUser].country}</Text>
+				 <Text style={styles.field}>Location: {girl[exampleChangeUser].location}</Text>
+				 <Text style={styles.field}><FontAwesome name='facebook-official' size={15}/>  {girl[exampleChangeUser].facebook}</Text>
+				 <Text style={styles.field}><FontAwesome name='twitter' size={15}/>  {girl[exampleChangeUser].twitter}</Text>
+				 <Text style={styles.field}><FontAwesome name='instagram' size={15}/>  {girl[exampleChangeUser].instagram}</Text>
+				 <Text style={styles.field}>Description: {girl[exampleChangeUser].description}</Text>
 			</ImageBackground>
         </DrawerContentScrollView>		
     </View>
@@ -55,5 +56,12 @@ const styles = StyleSheet.create({
 	alignItems: 'center',
     justifyContent: 'center',
   },
+
+	field:{
+	  	paddingTop:'5%',
+		fontSize:15,
+		color:'white',
+		paddingLeft:'3%',
+	},
 });
 export default CustomDrawer;

@@ -63,27 +63,30 @@ const getData = async () => {
 			)
 		}
 		  /> */}
+		<View style={styles.list}>
 		<TouchableOpacity onPress={()=> {setStart(false),setIdentify(msg[0].id)}}>
-			<View style={{borderWidth:2, borderColor:'red'}}>
+			<View style={styles.avatarANDname}>
 				<Image source={picture[1].uri} style={{ width: 80, height: 80, borderRadius:50}}/>
 				<View style={styles.name}>
 						<Text style={{fontSize:20, fontWeight:"bold", color:'black'}}>{msg[0].from}</Text>
 						<Text style={{fontSize:15, color:'black'}}>{msg[0].messageFrom[1].message}</Text>
-						<Text style={{fontSize:15, color:'black'}}>{msg[0].messageFrom[1].time}</Text>
+						<Text style={styles.time_box}>{msg[0].messageFrom[1].time}</Text>
 				</View>
 			</View>
 		</TouchableOpacity>
-		
+		</View>
+		<View style={styles.list}>
 		<TouchableOpacity onPress={()=> {setStart(false),setIdentify(msg[1].id)}}>
-			<View style={{borderWidth:2, borderColor:'red'}}>
+			<View style={styles.avatarANDname}>
 				<Image source={picture[0].uri} style={{ width: 80, height: 80, borderRadius:50}}/>
 				<View style={styles.name}>
 						<Text style={{fontSize:20, fontWeight:"bold", color:'black'}}>{msg[1].from}</Text>
 						<Text style={{fontSize:15, color:'black'}}>{msg[1].messageTo[2].message}</Text>
-						<Text style={{fontSize:15, color:'black'}}>{msg[1].messageTo[2].time}</Text>
+						<Text style={styles.time_box}>{msg[1].messageTo[2].time}</Text>
 				</View>
 			</View>
-		</TouchableOpacity>  
+		</TouchableOpacity>
+		</View>
     </SafeAreaView>
   );
   }else if (start === false && flaga === true){
@@ -92,7 +95,7 @@ const getData = async () => {
 			<SafeAreaView>
 				<StatusBar barStyle="dark-content" />
 				<View style={{paddingBottom:20}}>
-					<Button onPress={()=> setStart(true)}>{msg[0].from}</Button>
+					<Button style={styles.button} onPress={()=> setStart(true)}>{msg[0].from}</Button>
 				</View>
 				<View style={styles.chatRoom}>
 					{/*<FlatList
@@ -111,9 +114,9 @@ const getData = async () => {
 					/> */}
 					
 						<View>
-							<Text style={styles.rec_msg_text}>{msg[0].messageFrom[0].message}</Text>
+							<Text style={styles.rec_msg_box}>{msg[0].messageFrom[0].message}</Text>
 							<Text style={styles.send_msg_box}>{msg[0].messageTo[0].message}</Text>
-							<Text style={styles.rec_msg_text}>{msg[0].messageFrom[1].message}</Text>
+							<Text style={styles.rec_msg_box}>{msg[0].messageFrom[1].message}</Text>
 						</View>
 				</View>
 			</SafeAreaView>
@@ -142,7 +145,7 @@ const getData = async () => {
 					/> */}
 					
 						<View>
-							<Text style={styles.rec_msg_text}>{msg[1].messageFrom[0].message}</Text>
+							<Text style={styles.rec_msg_box}>{msg[1].messageFrom[0].message}</Text>
 							<Text style={styles.send_msg_box}>{msg[1].messageTo[0].message}</Text>
 							<Text style={styles.send_msg_box}>{msg[1].messageTo[1].message}</Text>
 							<Text style={styles.send_msg_box}>{msg[1].messageTo[2].message}</Text>
@@ -187,29 +190,31 @@ const styles = StyleSheet.create({
    },
    
    rec_msg_box:{
-		backgroundColor:'#DDDDDD',
-		marginTop:7,
-		marginLeft:5,
-		maxWidth:'60%',
-		minWidth:'30%',
-		paddingHorizontal:20,
-		paddingVertical:10,
-		borderTopLeftRadius:10,
-		borderTopRightRadius:20,
-		borderBottomRightRadius:10,
+	   width:'60%',
+	   marginTop:7,
+	   marginRight:'35%',
+	   marginLeft:'1%',
+	   paddingHorizontal:20,
+	   paddingVertical:10,
+	   borderRadius:2,
+	   backgroundColor:'#dedede',
+	   borderTopLeftRadius:10,
+	   borderTopRightRadius:20,
+	   borderBottomRightRadius:10,
 	},
+
 	send_msg_box:{
-		backgroundColor:'#3040B3FF',
+	  	width:'60%',
 		marginTop:7,
-		marginLeft:5,
-		maxWidth:'60%',
-		minWidth:'30%',
-		left:'38%',
+		marginLeft:'39%',
 		paddingHorizontal:20,
 		paddingVertical:10,
+		borderRadius:2,
+		backgroundColor:'#3040B3FF',
 		borderTopLeftRadius:20,
 		borderTopRightRadius:10,
 		borderBottomLeftRadius:10,
+		color:'white',
 	},
 	rec_msg_text:{
 		fontSize:16,
@@ -259,9 +264,13 @@ const styles = StyleSheet.create({
 	time_box:{
 		position:"absolute",
 		flex:1,
-		right:'80%',
+		right:'10%',
 		top:'78%',
 		color:'#3040B3FF',
+	},
+	button:{
+	  	backgroundColor:'#3040B3FF',
+		borderRadius:0,
 	},
    
 });
