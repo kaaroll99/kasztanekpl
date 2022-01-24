@@ -4,13 +4,13 @@ import { StyleSheet, View, Text, SafeAreaView, TextInput, Image, TouchableOpacit
 import { NativeBaseProvider, HStack, Avatar,  Actionsheet, useDisclose, Box, Icon, FormControl,Stack,Input,WarningOutlineIcon,Divider,Radio,Select,CheckIcon,Button,Heading,Flex,Menu,Pressable,Path} from 'native-base';
 import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
 import {user} from './HomeScreen';
-import {tab} from './TakePhoto';
-
-
+import TakePhoto from './TakePhoto';
 
 const LoginScreen = ({ navigation }) => {
   const { isOpen, onOpen, onClose } = useDisclose();
+  const [picture, setPicture] = useState('');
   
+ 
   
   return (
 

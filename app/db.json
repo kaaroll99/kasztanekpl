@@ -4,15 +4,20 @@
       "user": "Grzegorz",
       "pass": "Swajda",
       "personalData": {
-        "facebook": "KarolW",
-        "instagram": "Test",
-        "twitter": "KarolW",
+        "name": "Grzegorz",
+        "surname": "Swajda",
+        "age": "23",
+        "country": "Poland",
+        "location": "Wojcieszyce",
+        "sex": "Male",
+        "facebook": "Działa? ",
+        "instagram": "GrzegorzS",
+        "twitter": "GrzegorzS",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere, libero nec venenatis iaculis, leo neque tempor mi, sed dignissim dui tortor et metus. Sed mattis, odio vel placerat blandit, ante arcu vestibulum massa, a volutpat ipsum dolor in metus. Cras suscipit pellentesque molestie. Nam consectetur, mauris eget hendrerit posuere, purus magna volutpat nunc, eget interdum purus nulla tempus arcu. Nulla venenatis lorem enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus turpis lacus, luctus eget nisi non, consectetur varius sapien. Nunc molestie scelerisque magna, a elementum dolor fermentum placerat. Pellentesque consectetur turpis id ante auctor, ut consequat sapien porttitor. Nulla laoreet mi ligula, eu fermentum nunc dapibus et.Aliquam facilisis nunc sit amet dolor pharetra tristique. Mauris at nulla semper, pharetra nulla nec, eleifend nisi. Cras malesuada velit nec lacus lacinia, at tempus arcu consequat. Nunc sem nulla, ultricies non fermentum at, pellentesque ac nisl. Curabitur vel rutrum nunc. Ut suscipit sem lacus, sed molestie elit efficitur a. Phasellus aliquam leo ac gravida laoreet. Donec at sem a nisl feugiat accumsan. Suspendisse tempor sed purus ac porttitor."
       },
       "id": 1
     },
     {
-      "id": 2,
       "user": "Karol",
       "pass": "Wykrota",
       "personalData": {
@@ -22,40 +27,112 @@
         "country": "Poland",
         "location": "Kielce",
         "sex": "Male",
-        "facebook": "KarolW",
-        "instagram": "KarolW",
+        "facebook": "KawolW",
+        "instagram": "KawolW",
         "twitter": "KarolW",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere, libero nec venenatis iaculis, leo neque tempor mi, sed dignissim dui tortor et metus. Sed mattis, odio vel placerat blandit, ante arcu vestibulum massa, a volutpat ipsum dolor in metus. Cras suscipit pellentesque molestie. Nam consectetur, mauris eget hendrerit posuere, purus magna volutpat nunc, eget interdum purus nulla tempus arcu. Nulla venenatis lorem enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus turpis lacus, luctus eget nisi non, consectetur varius sapien. Nunc molestie scelerisque magna, a elementum dolor fermentum placerat. Pellentesque consectetur turpis id ante auctor, ut consequat sapien porttitor. Nulla laoreet mi ligula, eu fermentum nunc dapibus et.Aliquam facilisis nunc sit amet dolor pharetra tristique. Mauris at nulla semper, pharetra nulla nec, eleifend nisi. Cras malesuada velit nec lacus lacinia, at tempus arcu consequat. Nunc sem nulla, ultricies non fermentum at, pellentesque ac nisl. Curabitur vel rutrum nunc. Ut suscipit sem lacus, sed molestie elit efficitur a. Phasellus aliquam leo ac gravida laoreet. Donec at sem a nisl feugiat accumsan. Suspendisse tempor sed purus ac porttitor."
-      }
+      },
+      "id": 2
     }
   ],
   "Girlfriend": [
     {
       "id": 1,
       "name": "Basia",
-      "picture": "require('../assets/1.jpg')",
       "location": "Warszawa",
-      "age": "24"
+      "age": "24",
+      "surname": "Kurdej",
+      "country": "Poland",
+      "sex": "Female",
+      "facebook": "Basieńka",
+      "twitter": "Basieńka",
+      "instagram": "Basieńka",
+      "description": "Lubię pływać nocą w basenie"
     },
     {
       "id": 2,
       "name": "Kasia",
-      "picture": "require('../assets/2.jpg')",
       "location": "Kielce",
-      "age": "23"
+      "age": "23",
+      "surname": "Kochana",
+      "country": "Poland",
+      "sex": "Female",
+      "facebook": "Katri",
+      "twitter": "Katri",
+      "instagram": "Katri",
+      "description": "Jestem małą kochaną dziewczyną"
     },
     {
       "id": 3,
       "name": "Karolina",
-      "picture": "require('../assets/3.jpg')",
       "location": "Kraków",
-      "age": "23"
+      "age": "23",
+      "surname": "Borucka",
+      "country": "Poland",
+      "sex": "Female",
+      "facebook": "Nieuczesana",
+      "twitter": "Nieuczesana",
+      "instagram": "Nieuczesana",
+      "description": "Nwm"
     }
   ],
   "Session": [
     {
       "activeUser": false,
       "id": 1
+    }
+  ],
+  "Chat": [
+    {
+      "id": 1,
+      "from": "Kasia",
+      "messageFrom": [
+        {
+          "id": 1,
+          "message": "Hey,What's Up?",
+          "time": "8:45AM"
+        },
+        {
+          "id": 2,
+          "message": "Okey <3",
+          "time": "4:20PM"
+        }
+      ],
+      "messageTo": [
+        {
+          "id": 1,
+          "message": "Fine :D",
+          "time": "9:19AM"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "from": "Basia",
+      "messageFrom": [
+        {
+          "id": 1,
+          "message": "Hej Kochanie <3",
+          "time": "6:34PM"
+        }
+      ],
+      "messageTo": [
+        {
+          "id": 1,
+          "message": "No chejka",
+          "time": "9:29PM"
+        },
+        {
+          "id": 2,
+          "message": "Widzimy się dzisiaj?",
+          "time": "9:30PM"
+        },
+        {
+          "id": 3,
+          "message": "Halo!?",
+          "time": "10:11PM"
+        }
+      ]
     }
   ]
 }

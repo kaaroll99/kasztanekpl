@@ -6,7 +6,7 @@ import LoginScreen from './LoginScreen';
 import axios from 'axios';
 import {AdresURL} from '../App.js';
 
-const SettingsScreen = ({ navigation }) => {
+const SettingsScreen = ({ navigation, route }) => {
 	const [showModal1, setShowModal1] = useState(false)
 	const [showModal2, setShowModal2] = useState(false)
 	const [showModal3, setShowModal3] = useState(false)
@@ -17,11 +17,36 @@ const SettingsScreen = ({ navigation }) => {
 	const [showModal8, setShowModal8] = useState(false)
 	const [showModal9, setShowModal9] = useState(false)
 	const [showModal10, setShowModal10] = useState(false)
+	const [showModal11, setShowModal11] = useState(false)
+	
+	const name = route.params.name;
+	const surname = route.params.surname;
+	const age = route.params.age;
+	const sex = route.params.sex;
+	const location = route.params.location;
+	const country = route.params.country;
+	const user = route.params.user;
+	const pass = route.params.pass;
+	const fb = route.params.fb;
+	const ins = route.params.ins;
+	const tw = route.params.tw;
+	const ds = route.params.ds;
+	const act = route.params.active;
+	
+	const [changeName, setChangeName] = useState(name)
+	const [changeSurname, setChangeSurname] = useState(surname)
+	const [changeAge, setChangeAge] = useState(age)
+	const [changeSex, setChangeSex] = useState(sex)
+	const [changeLocation, setChangeLocation] = useState(location)
+	const [changeCountry, setChangeCountry] = useState(country)
+	const [changeUser, setChangeUser] = useState(user)
+	const [changePassword, setChangePassword] = useState(pass)
 	
 	const [onChangeValue, setOnChangeValue] = useState(18)
 	const [onChangeValue2, setOnChangeValue2] = useState(18)
 	const [service, setService] = useState("")
 	const [flaga,setFlaga] = useState(false)
+	
 	
 	const logOut = async () =>{
 		try {
@@ -32,6 +57,36 @@ const SettingsScreen = ({ navigation }) => {
 		}
 	}
 	
+	const putAxios = () => {
+		
+		try {
+			axios({
+				method: 'put',
+				url: AdresURL+'/Account/'+act,
+				data: {
+					user: user,
+					pass: pass,
+					personalData:{
+						name: changeName,
+						surname: changeSurname,
+						age: changeAge,
+						country: changeCountry,
+						location: changeLocation,
+						sex: changeSex,
+						facebook: fb,
+						instagram: ins,
+						twitter: tw,
+						description: ds
+					}
+				}
+			}).then(function (response) {console.log(response.data)});
+		} catch(error) {
+			console.error(error)
+		}
+			
+	}
+	console.log(name)
+	console.log(changeName)
   return (
  <NativeBaseProvider>
 	 <StatusBar barStyle="dark-content" />
@@ -50,6 +105,7 @@ const SettingsScreen = ({ navigation }) => {
 				<TouchableOpacity onPress={()=> setShowModal5(true)}><Text style={styles.clik}>Sex</Text></TouchableOpacity>
 				<TouchableOpacity onPress={()=> setShowModal6(true)}><Text style={styles.clik}>Country</Text></TouchableOpacity>
 				<TouchableOpacity onPress={()=> setShowModal7(true)}><Text style={styles.clik}>Location</Text></TouchableOpacity>
+				<TouchableOpacity onPress={()=> {putAxios(); setShowModal11(true)}}><Text style={styles.save}>Save</Text></TouchableOpacity>
 			</View>
 			<View style={styles.information}>
 				<Text style={styles.information_text}>Other services</Text>
@@ -87,7 +143,7 @@ const SettingsScreen = ({ navigation }) => {
 				<Text style={styles.information_text}>Account activities </Text>
 			</View>
 			<View style={styles.options}>
-				<TouchableOpacity onPress={() => {logOut(); navigation.popToTop();}}>
+				<TouchableOpacity onPress={() => {logOut(); navigation.navigate("FirstScreen");}}>
 					<Text style={styles.clik_logout}>Log out </Text>
 				</TouchableOpacity>
 			</View>
@@ -108,11 +164,11 @@ const SettingsScreen = ({ navigation }) => {
 			  <Modal.Header>Name</Modal.Header>
 			  <Modal.Body>
 				<FormControl>
-				  <FormControl.Label>Your name: </FormControl.Label>
+				  <FormControl.Label>Your name: {name}</FormControl.Label>
 				</FormControl>
 				<FormControl>
 				  <FormControl.Label>Change name </FormControl.Label>
-				  <Input />
+				  <Input onChangeText={(name) => setChangeName(name)}/>
 				</FormControl>
 			  </Modal.Body>
 			  <Modal.Footer>
@@ -146,11 +202,11 @@ const SettingsScreen = ({ navigation }) => {
 			  <Modal.Header>Surname</Modal.Header>
 			  <Modal.Body>
 				<FormControl>
-				  <FormControl.Label>Your Surname: </FormControl.Label>
+				  <FormControl.Label>Your Surname: {surname}</FormControl.Label>
 				</FormControl>
 				<FormControl>
 				  <FormControl.Label>Change Surname </FormControl.Label>
-				  <Input />
+				  <Input onChangeText={(surname) => setChangeSurname(surname)}/>
 				</FormControl>
 			  </Modal.Body>
 			  <Modal.Footer>
@@ -190,12 +246,7 @@ const SettingsScreen = ({ navigation }) => {
 				
 				<FormControl>
 				  <FormControl.Label>New Password </FormControl.Label>
-					<Input />
-				</FormControl>
-				
-				<FormControl>
-				  <FormControl.Label>Change Password </FormControl.Label>
-					<Input />
+					<Input onChangeText={(password) => setChangePassword(password)}/>
 				</FormControl>
 			  </Modal.Body>
 			  <Modal.Footer>
@@ -229,11 +280,11 @@ const SettingsScreen = ({ navigation }) => {
 			  <Modal.Header>Age</Modal.Header>
 			  <Modal.Body>
 				<FormControl>
-				  <FormControl.Label>Your Age: </FormControl.Label>
+				  <FormControl.Label>Your Age: {age}</FormControl.Label>
 				</FormControl>
 				<FormControl>
 				  <FormControl.Label>Change Age </FormControl.Label>
-				  <Input />
+				  <Input onChangeText={(age) => setChangeAge(age)}/>
 				</FormControl>
 			  </Modal.Body>
 			  <Modal.Footer>
@@ -267,11 +318,11 @@ const SettingsScreen = ({ navigation }) => {
 			  <Modal.Header>Sex</Modal.Header>
 			  <Modal.Body>
 				<FormControl>
-				  <FormControl.Label>Your Sex: </FormControl.Label>
+				  <FormControl.Label>Your Sex: {sex}</FormControl.Label>
 				</FormControl>
 				<FormControl>
 				  <FormControl.Label>Change Sex </FormControl.Label>
-				  <Input />
+				  <Input  onChangeText={(sex) => setChangeSex(sex)}/>
 				</FormControl>
 			  </Modal.Body>
 			  <Modal.Footer>
@@ -305,11 +356,11 @@ const SettingsScreen = ({ navigation }) => {
 			  <Modal.Header>Country</Modal.Header>
 			  <Modal.Body>
 				<FormControl>
-				  <FormControl.Label>Your Country: </FormControl.Label>
+				  <FormControl.Label>Your Country: {country}</FormControl.Label>
 				</FormControl>
 				<FormControl>
 				  <FormControl.Label>Change Country </FormControl.Label>
-				  <Input />
+				  <Input onChangeText={(country) => setChangeCountry(country)}/>
 				</FormControl>
 			  </Modal.Body>
 			  <Modal.Footer>
@@ -343,11 +394,11 @@ const SettingsScreen = ({ navigation }) => {
 			  <Modal.Header>Location</Modal.Header>
 			  <Modal.Body>
 				<FormControl>
-				  <FormControl.Label>Your Location: </FormControl.Label>
+				  <FormControl.Label>Your Location: {location}</FormControl.Label>
 				</FormControl>
 				<FormControl>
 				  <FormControl.Label>Change Location </FormControl.Label>
-				  <Input />
+				  <Input onChangeText={(location) => setChangeLocation(location)}/>
 				</FormControl>
 			  </Modal.Body>
 			  <Modal.Footer>
@@ -515,6 +566,34 @@ const SettingsScreen = ({ navigation }) => {
 		  </Modal>
 		</>
 		
+		
+		<>
+		  <Modal isOpen={showModal11} onClose={() => setShowModal11(false)}>
+			<Modal.Content maxWidth="400px">
+			  <Modal.CloseButton />
+			  <Modal.Header>Changes</Modal.Header>
+			  <Modal.Body>
+				<FormControl>
+				  <FormControl.Label>Change successful</FormControl.Label>
+				</FormControl>
+			  </Modal.Body>
+			  <Modal.Footer>
+				<Button.Group space={2}>
+				  <Button
+					variant="ghost"
+					colorScheme="blueGray"
+					onPress={() => {
+					  setShowModal11(false)
+					}}
+				  >
+					Cancel
+				  </Button>
+				</Button.Group>
+			  </Modal.Footer>
+			</Modal.Content>
+		  </Modal>
+		</>
+		
 </NativeBaseProvider>
   );
 }
@@ -546,6 +625,15 @@ const styles = StyleSheet.create({
 	  paddingVertical:15,
 	  backgroundColor:'white',
 	  fontSize:16,
+  },
+  save: {
+	marginVertical:1,
+	paddingHorizontal:5,
+	  paddingVertical:15,
+	  backgroundColor:'green',
+	  fontSize:16,
+	  color:'white',
+	  textAlign:'center',
   },
 	clik_logout: {
 		marginVertical:1,

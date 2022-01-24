@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef  } from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, StatusBar} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, StatusBar, Image} from 'react-native';
 import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
 import { Camera } from 'expo-camera';
 
-export const tab = []
-
-const TakePhoto = ({ navigation }) => {
+const TakePhoto = ({ navigation, img }) => {
 	const [hasPermission, setHasPermission] = useState(null);
 	const [type, setType] = useState(Camera.Constants.Type.back);
 	const [image, setImage]= useState(null);
@@ -31,13 +29,11 @@ const TakePhoto = ({ navigation }) => {
 	  if (hasPermission === false) {
 		return <Text>No access to camera</Text>;
 	  }
-	  
-	  
   return (
 
 	 <View style={styles.container}>
 		 <StatusBar barStyle="light-content" />
-<Text>{tab[1]}</Text>
+				
       <Camera style={styles.camera} type={type} ref={ref}>
         <View style={styles.buttonContainer}>
 

@@ -48,6 +48,7 @@ const LoginScreen = ({ navigation }) => {
 						url: AdresURL+'/Session',
 						data: {
 							activeUser: user[i].id - 1,
+							activeUserToChangeValue: user[i].id,
 						}
 					}).then(function (response) {console.log(response.data)});
 					} catch(error) {

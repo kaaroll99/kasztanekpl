@@ -5,6 +5,8 @@ import { StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, ScrollVi
 import {FontAwesome, MaterialIcons, Ionicons} from '@expo/vector-icons';
 import axios from 'axios';
 import {AdresURL} from '../App.js';
+import {user} from './HomeScreen.js';
+import Loader from '../components/Loader.js';
 
 const currentColor = 'yellow'
 const nonColor = 'white'
@@ -90,17 +92,17 @@ const ProfileScreen = ({ navigation }) => {
 		try {
 			axios({
 				method: 'put',
-				url: AdresURL+'/Account/'+active[1].activeUser,
+				url: AdresURL+'/Account/'+active[1].activeUserToChangeValue,
 				data: {
 					user: profile[active[1].activeUser].user,
 					pass: profile[active[1].activeUser].pass,
 					personalData:{
-						name: profile[active[1].activeUser].name,
-						surname: profile[active[1].activeUser].surname,
-						age: profile[active[1].activeUser].age,
-						country: profile[active[1].activeUser].country,
-						location: profile[active[1].activeUser].location,
-						sex: profile[active[1].activeUser].sex,
+						name: profile[active[1].activeUser].personalData.name,
+						surname: profile[active[1].activeUser].personalData.surname,
+						age: profile[active[1].activeUser].personalData.age,
+						country: profile[active[1].activeUser].personalData.country,
+						location: profile[active[1].activeUser].personalData.location,
+						sex: profile[active[1].activeUser].personalData.sex,
 						facebook: face,
 						instagram: insta,
 						twitter: twit,
@@ -132,6 +134,7 @@ const ProfileScreen = ({ navigation }) => {
 		}
 	}
 	
+	
 	useEffect(() => {
 		getData();
 		getActive();
@@ -142,7 +145,7 @@ const ProfileScreen = ({ navigation }) => {
 				setTwit(profile[active[1].activeUser].personalData.twitter)
 				setFlaga(true)
 			}
-	}, [])
+	}, []) 
 	console.log(profile)
 	console.log(active)
 	
@@ -162,7 +165,7 @@ if(flaga == true){
 				 <>
 		<HStack space={2}>
 			<TouchableOpacity onPress={onOpen}>
-				<Avatar size="2xl" source={require("../assets/1.jpg")} style={{borderWidth:2,borderColor:'white'}}>Zdjecie</Avatar>
+				<Avatar size="2xl" source={active[1].activeUser === 1 ? user[3].uri : active[1].activeUser === 2 ? user[3].uri2 : user[3].uri3} style={{borderWidth:2,borderColor:'white'}}>Zdjecie</Avatar>
 			</ TouchableOpacity>
 		</HStack>
       <Actionsheet isOpen={isOpen} onClose={onClose} size="full">
@@ -220,7 +223,23 @@ if(flaga == true){
 					{profile[active[1].activeUser].personalData.age}
 				</Text>
 				<View style={styles.buttony}>
-					<TouchableOpacity onPress={() => navigation.navigate('SettingsScreen')}>
+					<TouchableOpacity onPress={() => navigation.navigate('SettingsScreen', 
+					{
+						name: profile[active[1].activeUser].personalData.name,
+						surname: profile[active[1].activeUser].personalData.surname,
+						age: profile[active[1].activeUser].personalData.age,
+						country: profile[active[1].activeUser].personalData.country,
+						location: profile[active[1].activeUser].personalData.location,
+						sex: profile[active[1].activeUser].personalData.sex,
+						user: profile[active[1].activeUser].user,
+						pass: profile[active[1].activeUser].pass,
+						fb: profile[active[1].activeUser].personalData.facebook,
+						tw: profile[active[1].activeUser].personalData.twitter,
+						ins: profile[active[1].activeUser].personalData.ins,
+						ds: profile[active[1].activeUser].personalData.description,
+						active: active[1].activeUserToChangeValue,
+					} 
+					)}>
 						<Text style={styles.buttonStyle}>
 							<MaterialIcons name='settings' size={35}/>
 						</Text>
@@ -310,7 +329,7 @@ if(flaga == true){
               </Button>
               <Button
                 onPress={() => {
-                  putAxios()
+                  putAxios(); setShowModal(false);
                 }}
               >
                 Save
@@ -326,12 +345,7 @@ if(flaga == true){
   );
 }else{
 	return(
-		<View style={styles.loader}>
-			<HStack space={2} alignItems="center">
-				<Spinner accessibilityLabel="Loading posts" color="#3040B3" size="lg" />
-				<Heading color="#3040B3" fontSize="lg">Loading</Heading>
-			</HStack>
-		</View>
+		<Loader />
 	)
 }
 }

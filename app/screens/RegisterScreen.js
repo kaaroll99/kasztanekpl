@@ -99,37 +99,37 @@ const RegisterScreen = ({ navigation }) => {
 								}}
 								onValueChange={(age) => setAge(age)}
 							  >
-								<Select.Item label="16" value="1"/>
-								<Select.Item label="17" value="2"/>
-								<Select.Item label="18" value="3"/>
-								<Select.Item label="19" value="4"/>
-								<Select.Item label="20" value="5"/>
-								<Select.Item label="21" value="6"/>
-								<Select.Item label="22" value="7"/>
-								<Select.Item label="23" value="8"/>
-								<Select.Item label="24" value="9"/>
-								<Select.Item label="25" value="10"/>
-								<Select.Item label="26" value="11"/>
-								<Select.Item label="27" value="12"/>
-								<Select.Item label="28" value="13"/>
-								<Select.Item label="29" value="14"/>
-								<Select.Item label="30" value="15"/>
-								<Select.Item label="31" value="16"/>
-								<Select.Item label="32" value="17"/>
-								<Select.Item label="33" value="18"/>
-								<Select.Item label="34" value="19"/>
-								<Select.Item label="35" value="20"/>
-								<Select.Item label="36" value="21"/>
-								<Select.Item label="37" value="22"/>
-								<Select.Item label="38" value="23"/>
-								<Select.Item label="39" value="24"/>
-								<Select.Item label="40" value="25"/>
-								<Select.Item label="41" value="26"/>
-								<Select.Item label="42" value="27"/>
-								<Select.Item label="43" value="28"/>
-								<Select.Item label="44" value="29"/>
-								<Select.Item label="45" value="30"/>
-								<Select.Item label="46" value="31"/>
+								<Select.Item label="16" value="16"/>
+								<Select.Item label="17" value="17"/>
+								<Select.Item label="18" value="18"/>
+								<Select.Item label="19" value="19"/>
+								<Select.Item label="20" value="20"/>
+								<Select.Item label="21" value="21"/>
+								<Select.Item label="22" value="22"/>
+								<Select.Item label="23" value="23"/>
+								<Select.Item label="24" value="24"/>
+								<Select.Item label="25" value="25"/>
+								<Select.Item label="26" value="26"/>
+								<Select.Item label="27" value="27"/>
+								<Select.Item label="28" value="28"/>
+								<Select.Item label="29" value="29"/>
+								<Select.Item label="30" value="30"/>
+								<Select.Item label="31" value="31"/>
+								<Select.Item label="32" value="32"/>
+								<Select.Item label="33" value="33"/>
+								<Select.Item label="34" value="34"/>
+								<Select.Item label="35" value="35"/>
+								<Select.Item label="36" value="36"/>
+								<Select.Item label="37" value="36"/>
+								<Select.Item label="38" value="38"/>
+								<Select.Item label="39" value="39"/>
+								<Select.Item label="40" value="40"/>
+								<Select.Item label="41" value="41"/>
+								<Select.Item label="42" value="42"/>
+								<Select.Item label="43" value="43"/>
+								<Select.Item label="44" value="44"/>
+								<Select.Item label="45" value="45"/>
+								<Select.Item label="46" value="46"/>
 							  </Select>
 
 							  
@@ -175,6 +175,7 @@ const RegisterScreen = ({ navigation }) => {
 								<Select.Item label="RPA" value="RPA"/>
 								<Select.Item label="Japan" value="Japan"/>
 								<Select.Item label="Monaco" value="Monaco"/>
+								<Select.Item label="San Escobar" value="San Escobar"/>
 							  </Select>
 							  
 							  <FormControl.Label>Location</FormControl.Label>

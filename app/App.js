@@ -18,7 +18,7 @@ import {createDrawerNavigator,DrawerContentScrollView,DrawerItemList,DrawerItem,
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export const AdresURL =  'http://897d-91-240-31-35.ngrok.io';
+export const AdresURL =   'http://448c-213-77-117-139.ngrok.io';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -35,7 +35,7 @@ function Draw() {
         drawerLabelStyle: {
         },
       }}>
-        <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Drawer.Screen name="HomeScreen" component={HomeScreen} />
       </Drawer.Navigator>
   );
 }
@@ -48,7 +48,7 @@ function Tabs() {
 		tabBarActiveTintColor: '#3040B3',
 		}}
       >
-      <Tab.Screen name="Home" component={HomeScreen} options={{
+      <Tab.Screen name="Home" component={Draw} options={{
 				tabBarLabel: 'Home',
 				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="cards" color={color} size={27} />),
 			}}
@@ -57,7 +57,7 @@ function Tabs() {
 				tabBarLabel: 'Chat',
 				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="chat" color={color} size={27} />),
 			}}/>
-      <Tab.Screen name="Profile" component={Draw} options={{
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{
 				tabBarLabel: 'Profile',
 				tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="account" color={color} size={27} />),
 			}}/>
@@ -70,7 +70,7 @@ export default function App() {
   return (
 <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LoginScreen">
+      <Stack.Navigator initialRouteName="FirstScreen">
         <Stack.Screen
           name="FirstScreen"
           component={FirstScreen}

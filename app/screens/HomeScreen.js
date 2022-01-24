@@ -6,8 +6,20 @@ import { EvilIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import {AdresURL} from '../App.js';
+import Loader from '../components/Loader.js';
 import axios from 'axios';
-	
+
+export const user = [
+  { uri: require('../assets/1.jpg')},
+  { uri: require('../assets/2.jpg')},
+  { uri: require('../assets/3.jpg')},
+  { uri: require('../assets/44.jpg'),
+	uri2: require('../assets/41.jpg'),
+	uri3: require('../assets/42.jpg'),
+	uri4: require('../assets/43.jpg'),
+	uri4: require('../assets/4.jpg'),
+  }
+]	
 
 const currentColor = '#3040B3'
 const nonColor = 'gray'
@@ -33,7 +45,7 @@ const getData = async () => {
 console.log(flaga)
 
 	if(flaga == true){
-
+		
 	  return (
 		<View style={styles.container}>
 			<StatusBar barStyle="dark-content" />
@@ -53,7 +65,7 @@ console.log(flaga)
 				</View>
 			<View style={styles.image}>
 				<Image 
-					source={girl[exampleChangeUser].picture}
+					source={user[exampleChangeUser].uri}
 					style={{ width: "100%", height: "100%", borderRadius:20}}
 				/>
 				
@@ -82,12 +94,7 @@ console.log(flaga)
 	  );
 	}else{
 	return(
-		<View style={styles.loader}>
-			<HStack space={2} alignItems="center">
-				<Spinner accessibilityLabel="Loading posts" color="#3040B3" size="lg" />
-				<Heading color="#3040B3" fontSize="lg">Loading</Heading>
-			</HStack>
-		</View>
+		<Loader />
 	)
 }
 }
@@ -110,7 +117,6 @@ const styles = StyleSheet.create({
 	  shadowOffset: {width: 0, height: 4,},
 	  shadowOpacity: 0.8,
 	  shadowRadius: 7,
-	  elevation: 10,
   } ,
   
    kasztanek:{
@@ -158,12 +164,12 @@ const styles = StyleSheet.create({
 	paddingBottom: 7,
 	paddingLeft:10,
 	textAlign:"left", 
+	zIndex:10000,
   }, 
   
   inImageTop:{
 	position:'absolute',
 	marginTop:50,
-	zIndex:1,
 	width:'100%',
   },
   
@@ -183,6 +189,7 @@ const styles = StyleSheet.create({
 	textShadowColor: 'black',
 	textShadowRadius: 10,
 	textAlign:"left",
+	zIndex:10000,
 },
 });
 
